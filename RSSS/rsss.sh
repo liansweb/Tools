@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /root/rss_analysis
+cd /root/RSSS
 python3 rsss.py 
