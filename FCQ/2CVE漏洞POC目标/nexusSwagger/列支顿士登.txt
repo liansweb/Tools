@@ -1,0 +1,1 @@
+https://82.117.6.238:443/service/rest/swagger.json

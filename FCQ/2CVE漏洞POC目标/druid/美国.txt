@@ -1,0 +1,5 @@
+http://165.22.4.68:8888/druid/indexer/v1/sampler?for=connect
+http://165.22.4.68:8081/druid/indexer/v1/sampler?for=connect
+http://52.204.3.27:8088/druid/indexer/v1/sampler?for=connect
+http://44.206.34.13:8088/druid/indexer/v1/sampler?for=connect
+http://18.216.61.96:8888/druid/indexer/v1/sampler?for=connect

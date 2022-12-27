@@ -1,0 +1,2 @@
+http://18.167.198.116:80/service/rapture/session
+http://18.166.165.78:80/service/rapture/session

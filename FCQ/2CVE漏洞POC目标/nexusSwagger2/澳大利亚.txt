@@ -1,0 +1,4 @@
+https://13.238.125.163:443/service/rapture/session
+https://54.79.108.101:443/service/rapture/session
+http://54.79.108.101:80/service/rapture/session
+https://52.62.206.107:443/service/rapture/session

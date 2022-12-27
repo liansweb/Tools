@@ -1,0 +1,7 @@
+proxies:
+  http://: http://127.0.0.1:7890
+  https://: https://127.0.0.1:7890
+timeout: 2
+follow_redirects: Fasle
+headers:
+cookies:

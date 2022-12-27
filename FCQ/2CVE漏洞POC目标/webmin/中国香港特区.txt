@@ -1,0 +1,2 @@
+https://122.9.141.98:10000/session_login.cgi
+https://122.9.136.45:10000/session_login.cgi

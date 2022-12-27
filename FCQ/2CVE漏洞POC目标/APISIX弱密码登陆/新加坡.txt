@@ -1,0 +1,6 @@
+http://156.59.69.107:9000/apisix/admin/user/login
+http://119.12.165.201:9000/apisix/admin/user/login
+http://54.169.137.209:9000/apisix/admin/user/login
+http://43.156.70.8:9000/apisix/admin/user/login
+http://156.59.69.112:9000/apisix/admin/user/login
+http://156.59.69.111:9000/apisix/admin/user/login

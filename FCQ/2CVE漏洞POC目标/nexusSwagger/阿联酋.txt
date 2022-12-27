@@ -1,0 +1,7 @@
+http://193.123.71.240:8081/service/rest/swagger.json
+http://47.91.125.153:8182/service/rest/swagger.json
+https://20.74.216.180:443/service/rest/swagger.json
+http://20.74.237.100:8085/service/rest/swagger.json
+http://188.116.29.126:8888/service/rest/swagger.json
+https://213.132.54.22:443/service/rest/swagger.json
+https://20.74.237.100:8086/service/rest/swagger.json

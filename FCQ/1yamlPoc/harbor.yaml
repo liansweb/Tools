@@ -1,0 +1,16 @@
+targetPath: /api/users
+targetMethod: post
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    User-Agent: Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)
+    Content-Type: application/json
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/harbor获取用户/
+targetRestText: False

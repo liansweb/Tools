@@ -1,0 +1,4 @@
+http://13.208.243.181:4369/jmx-console/
+https://163.144.254.168:8443/jmx-console/
+https://18.180.121.129:18080/jmx-console/
+https://35.75.65.59:18080/jmx-console/

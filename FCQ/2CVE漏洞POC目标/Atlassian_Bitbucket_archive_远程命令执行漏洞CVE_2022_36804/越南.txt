@@ -1,0 +1,3 @@
+http://27.72.103.150:8090/rest/api/latest/repos
+https://103.116.104.68:443/rest/api/latest/repos
+https://203.162.76.3:9443/rest/api/latest/repos

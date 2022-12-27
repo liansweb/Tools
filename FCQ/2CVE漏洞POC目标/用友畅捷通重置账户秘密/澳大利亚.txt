@@ -1,0 +1,1 @@
+http://47.91.44.34:8080/tplus/ajaxpro/RecoverPassword,App_Web_recoverpassword.aspx.cdcab7d2.ashx?method=SetNewPwd

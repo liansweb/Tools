@@ -1,0 +1,3 @@
+https://45.13.97.213:443/service/rest/swagger.json
+https://87.110.236.24:443/service/rest/swagger.json
+http://45.13.97.213:80/service/rest/swagger.json

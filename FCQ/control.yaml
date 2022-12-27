@@ -1,0 +1,11 @@
+email: null
+fields: protocol,ip,port
+fieldsJoin: $1://$2:$3
+full: false
+key: null
+page: 1
+query: app="YApi" && country="US"
+resultSuffix: txt
+size: 100
+sleep: 1
+url: https://fofa.info/api/v1/search/all?email=

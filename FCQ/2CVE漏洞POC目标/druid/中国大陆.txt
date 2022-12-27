@@ -1,0 +1,10 @@
+http://47.114.109.73:8888/druid/indexer/v1/sampler?for=connect
+http://123.58.224.8:36846/druid/indexer/v1/sampler?for=connect
+http://123.56.218.244:80/druid/indexer/v1/sampler?for=connect
+http://101.132.167.28:8888/druid/indexer/v1/sampler?for=connect
+http://101.201.83.30:8888/druid/indexer/v1/sampler?for=connect
+http://124.71.17.231:8081/druid/indexer/v1/sampler?for=connect
+http://124.71.17.231:8090/druid/indexer/v1/sampler?for=connect
+http://106.14.214.122:8888/druid/indexer/v1/sampler?for=connect
+http://183.63.81.38:8888/druid/indexer/v1/sampler?for=connect
+http://47.99.177.186:8888/druid/indexer/v1/sampler?for=connect

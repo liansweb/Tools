@@ -1,0 +1,1 @@
+http://20.210.250.99:9000/apisix/admin/user/login

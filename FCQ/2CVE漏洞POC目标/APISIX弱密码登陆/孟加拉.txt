@@ -1,0 +1,3 @@
+http://160.202.145.166:9000/apisix/admin/user/login
+http://103.17.181.242:9000/apisix/admin/user/login
+http://103.17.181.244:9000/apisix/admin/user/login

@@ -1,0 +1,2 @@
+https://35.159.17.50:443/service/rapture/session
+https://18.158.129.153:443/service/rapture/session

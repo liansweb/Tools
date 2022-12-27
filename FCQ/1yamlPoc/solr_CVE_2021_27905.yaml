@@ -1,0 +1,15 @@
+targetPath: /solr/admin/cores?indexInfo=false&wt=json
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: \"name\"\s*:\s*\"[^\"]+\"
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/solrCVE_2021_27905/
+targetRestText: False

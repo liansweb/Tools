@@ -1,0 +1,7 @@
+http://60.248.85.106:8983/solr/admin/cores?indexInfo=false&wt=json
+http://60.251.35.88:8983/solr/admin/cores?indexInfo=false&wt=json
+http://103.122.226.85:8983/solr/admin/cores?indexInfo=false&wt=json
+http://59.125.28.245:8983/solr/admin/cores?indexInfo=false&wt=json
+http://140.120.40.136:8983/solr/admin/cores?indexInfo=false&wt=json
+http://61.66.79.55:8983/solr/admin/cores?indexInfo=false&wt=json
+http://35.236.180.89:8983/solr/admin/cores?indexInfo=false&wt=json

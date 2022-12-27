@@ -1,0 +1,3 @@
+https://60.246.210.240:10000/session_login.cgi
+https://60.246.225.167:10000/session_login.cgi
+https://27.109.173.110:10000/session_login.cgi

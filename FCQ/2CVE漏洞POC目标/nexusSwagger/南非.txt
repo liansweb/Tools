@@ -1,0 +1,12 @@
+http://41.71.62.149:8081/service/rest/swagger.json
+https://41.164.30.133:443/service/rest/swagger.json
+https://102.220.84.3:443/service/rest/swagger.json
+http://13.244.37.25:80/service/rest/swagger.json
+http://45.220.166.71:8081/service/rest/swagger.json
+http://13.246.81.86:80/service/rest/swagger.json
+http://13.245.92.12:8081/service/rest/swagger.json
+http://13.245.47.177:8081/service/rest/swagger.json
+http://20.87.43.104:8081/service/rest/swagger.json
+http://40.127.3.108:8081/service/rest/swagger.json
+http://197.189.203.18:8081/service/rest/swagger.json
+http://102.37.122.254:8081/service/rest/swagger.json

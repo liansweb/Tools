@@ -1,0 +1,4 @@
+http://47.89.22.54:9000/apisix/admin/user/login
+http://8.210.83.241:9000/apisix/admin/user/login
+http://128.1.156.200:9000/apisix/admin/user/login
+http://119.28.222.137:9000/apisix/admin/user/login

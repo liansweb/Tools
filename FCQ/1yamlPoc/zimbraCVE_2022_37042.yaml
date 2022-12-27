@@ -1,0 +1,14 @@
+targetPath: /service/extension/backup/mboximport?account-name=admin&account-status=1&ow=cmd
+targetMethod: post
+targetTimeout: 2
+targetProfixs:
+targetAllowRedirects: false
+targetHeaders:
+    Content-Type: application/x-www-form-urlencoded
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/ZimbraCVE_2022_37402/
+targetRestText: False

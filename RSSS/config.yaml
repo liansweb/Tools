@@ -1,0 +1,7 @@
+feishuToken: https://open.feishu.cn/open-apis/bot/v2/hook/07e0e291-a104-4206-a426-c8b824803974
+filterSearch:
+  - 漏洞
+  - 分析
+sqlDataName: ./rssData
+sqlTableName: rssTable
+sqlCretaTable: CREATE TABLE rssTable ( id integer primary key autoincrement, title TEXT(15) not null,link TEXT(15) not null, date TEXT(15) not null,rssName TEXT(15) not null);

@@ -1,0 +1,5 @@
+http://52.198.175.113:8080/rest/api/latest/repos
+https://54.65.55.163:8443/rest/api/latest/repos
+https://103.4.10.228:443/rest/api/latest/repos
+https://18.178.217.170:443/rest/api/latest/repos
+https://52.197.158.158:443/rest/api/latest/repos

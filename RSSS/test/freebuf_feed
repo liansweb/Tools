@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>FreeBuf网络安全行业门户</title>
+    <link>https://www.freebuf.com</link>
+    <description/>
+    <atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://www.freebuf.com/feed" type="application/rss+xml" rel="self"/>
+    <language>zh-CN</language>
+    <pubDate>Mon, 05 Dec 2022 20:42:05 +0800</pubDate>
+    <item>
+      <title><![CDATA[俄罗斯多地政厅和法院遭网络攻击，不排除地缘政治的原因]]></title>
+      <link>https://www.freebuf.com/news/351632.html</link>
+      <description><![CDATA[该新型攻击可以消除所有格式的文件内容，但负责系统本身运行的文件除外。其主要目标包括数据库和档案。]]></description>
+      <content:encoded><![CDATA[<p><img src="https://image.3001.net/images/20221205/1670231703_638db6974ce421a49633c.png!small" alt="" width="690" height="461" /></p><p>近日，俄罗斯几个地区的市政厅和法院受到一种新的CryWiper加密病毒的攻击。该新型攻击可以消除所有格式的文件内容，但负责系统]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Mon, 05 Dec 2022 17:19:31 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[一文学会DNS隧道搭建]]></title>
+      <link>https://www.freebuf.com/sectool/350589.html</link>
+      <description><![CDATA[一文学会搭建dns隧道]]></description>
+      <content:encoded><![CDATA[<h2 id="h2-1">一.DNS隧道准备</h2><p>和我哥们在看一个站点的时候，发现是不出网的，但是站点可以做DNS查询，所以想着搭建一个DNS隧道。</p><p><strong>此篇文章为了读者看起来更加清楚，我的公网服务器与域名都是未打码的，希望各位大佬手下留情。</strong></p><h3 id="h3-1"><strong>1.DNS隧道介绍</strong></h3><p>]]></content:encoded>
+      <category>工具</category>
+      <pubDate>Mon, 05 Dec 2022 15:03:13 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[三菱电机 PLC 曝出多个严重安全漏洞]]></title>
+      <link>https://www.freebuf.com/news/351595.html</link>
+      <description><![CDATA[美国网络安全和基础设施安全局在上周发布了一份工业控制系统咨询，对三菱电机 GX Works3 工程软件存在的多个漏洞发出了安全警告。]]></description>
+      <content:encoded><![CDATA[<p>美国网络安全和基础设施安全局 (CISA) 在上周发布了一份工业控制系统 (ICS) 咨询，对三菱电机 GX Works3 工程软件存在的多个漏洞发出了安全警告。</p><p><img src="https://image.3001.net/images/20221205/1670223409_638d9631b2213111cbc86.png!small" width="690" heig]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Mon, 05 Dec 2022 14:56:22 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[澳大利亚数据保护要求]]></title>
+      <link>https://www.freebuf.com/articles/database/351245.html</link>
+      <description><![CDATA[澳大利亚个人数据保护的主要立法是《隐私法》及其《澳大利亚隐私原则》（“APPs”）。此外，还有《2013年隐私条例》、具有法律约束力的《隐私（信用报告）准则》以及规则和指南。]]></description>
+      <content:encoded><![CDATA[<h1>1. 前言</h1><p>澳大利亚政府宣布修订1988年《隐私法》以增加罚款。严重侵犯或反复侵犯隐私（即违反隐私法）的最高罚款将增加到1000万澳元（约合630万欧元）的上限，处以违法所得的三倍，或澳大利亚年收入的10%，较高者为准。<br />澳大利亚政府总检察长部目前正在对《隐私法》进行全面审查，包括同意要求、例外和行动权。审查可能会导致《隐私法》的重大变化。</p><h2 id="h]]></content:encoded>
+      <category>数据安全</category>
+      <pubDate>Mon, 05 Dec 2022 14:39:08 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[IBM 云数据库 PostgreSQL 出现安全漏洞]]></title>
+      <link>https://www.freebuf.com/news/351588.html</link>
+      <description><![CDATA[IBM修复一个影响其 PostgreSQL 云数据库产品的高严重性安全漏洞，该漏洞可能被利用来篡改内部存储库并运行未经授权的代码。]]></description>
+      <content:encoded><![CDATA[<p>The Hacker News 网站披露，IBM 近日修复一个影响其 PostgreSQL 云数据库（ICD）产品的高严重性安全漏洞（CVSS分数：8.8），该漏洞可能被利用来篡改内部存储库并运行未经授权的代码。<img src="https://image.3001.net/images/20221205/1670221510_638d8ec62a97d9f88f481.jpg!small]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Mon, 05 Dec 2022 14:02:54 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[小心！这些安装了 200 万次的 Android 键盘应用程序可以被远程入侵]]></title>
+      <link>https://www.freebuf.com/news/351574.html</link>
+      <description><![CDATA[这些应用程序被广泛使用，但它们既没有考虑到用户的隐私安全也没有进行任何迭代，显然，在开发这些应用程序时，安全性并不在他们的设计范围内。]]></description>
+      <content:encoded><![CDATA[<div><a href="https://thehackernews.com/new-images/img/b/R29vZ2xl/AVvXsEgQrGQZnw71xbHna91_XFGhMxRYuui5j1sbAmGTkQTph4ohlJeVpMn-iP0tbxXCE4tk29iTpgc0LT9ZcRswHblSlG9Eug9EUgQcsFDv0VBtBx_wZTjjjStjh7X7XcvuHX]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Mon, 05 Dec 2022 11:46:31 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[FreeBuf早报 | 俄罗斯政府遭勒索软件攻击；美国发布“星盾”卫星项目]]></title>
+      <link>https://www.freebuf.com/news/351524.html</link>
+      <description><![CDATA[美国太空探索技术公司正式在其官网主页发布了专门为政府服务的 “星盾”卫星项目。“星盾”卫星将利用“星链”卫星的技术和发射能力，为国家安全工作提供支持和保障。]]></description>
+      <content:encoded><![CDATA[<h2 id="h2-1">【全球动态】</h2><h3 id="h3-1">1. 俄罗斯政府机构遭CryWiper勒索软件攻击</h3><p>外媒报道称，俄罗斯市长的办公室和法院遭到了一种新的加密病毒的攻击。该程序在计算机上对数据进行编码，要求支付赎金——超过50万卢布。但是，即使您将这笔金额转移给黑客，病毒也会将文件完全删除。【外刊-<a href="https://www.securityl]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Sun, 04 Dec 2022 21:14:48 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[Octopii：一款AI驱动的个人身份信息（PII）扫描工具]]></title>
+      <link>https://www.freebuf.com/articles/database/351523.html</link>
+      <description><![CDATA[Octopii是一款功能强大的AI驱动的个人身份信息（PII）扫描工具，可以帮助广大研究人员在一个目录中扫描各种和个人身份信息（PII）相关的图片资源。]]></description>
+      <content:encoded><![CDATA[<p><img src="https://image.3001.net/images/20221204/1670158450_638c9872b5e5549f96a3d.png!small" width="690" height="252" alt="" /></p><h2 id="h2-1">关于Octopii</h2><p>Octopii是一款功能强大的AI驱动的个人身份信息（PII）扫描工具]]></content:encoded>
+      <category>数据安全</category>
+      <pubDate>Sun, 04 Dec 2022 15:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[MAC钓鱼并Root权限上线CS并权限维持，以及所有的坑如何解决]]></title>
+      <link>https://www.freebuf.com/articles/web/350592.html</link>
+      <description><![CDATA[MAC钓鱼并Root权限上线CS并权限维持，以及所有的坑如何解决分享学习。]]></description>
+      <content:encoded><![CDATA[<p>作者：文鸯@涂鸦智能安全实验室</p><h2 id="h2-1">制作MAC</h2><h3 id="h3-1">一、下载工具</h3><p>首先从github上下载CrossC2。链接：https://github.com/gloxec/CrossC2/releases/tag/v3.1.0。</p><p><img src="https://image.3001.net/images/20]]></content:encoded>
+      <category>Web安全</category>
+      <pubDate>Fri, 02 Dec 2022 18:22:06 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[fastjson1.2.80 Attack]]></title>
+      <link>https://www.freebuf.com/vuls/344786.html</link>
+      <description><![CDATA[fastjson1.2.80利用链分析且结合JDBC attack手法]]></description>
+      <content:encoded><![CDATA[<p>套序列化和反序列化机制，核心是通过Converter转换器来将XML和对象之间进行相互的转换，XStream反序列化漏洞的存在是因为XStream支持一个名为DynamicProxyConverter的转换器，该转换器可以将XML中dynamixxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx]]></content:encoded>
+      <category>漏洞</category>
+      <pubDate>Fri, 02 Dec 2022 18:10:48 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[全国首例！云南破获域名黑产大案，抓获630人]]></title>
+      <link>https://www.freebuf.com/news/351436.html</link>
+      <description><![CDATA[在公安部的组织指挥下，云南公安机关历时8个多月，成功破获全国首例域名黑产犯罪案件。]]></description>
+      <content:encoded><![CDATA[<p>2021年5月以来，在公安部的组织指挥下，云南公安机关历时8个多月，成功破获全国首例域名黑产犯罪案件，经全国各地公安机关连续奋战，共侦破案件300起，抓获涉案人员630人，查封用于黄、赌、诈等违法网站域名50余万个。</p><p>近日，该案在昆明市西山区人民法院依法进行审理，案件中违规销售域名的某网络科技公司被判处罚金200万元；李某某、怀某某等主要犯罪嫌疑人一审分别被判处一至二年不等有期徒]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Fri, 02 Dec 2022 16:31:26 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[FreeBuf周报 | Facebook因数据泄露被罚2.65亿欧元；LastPass承认客户数据被窃]]></title>
+      <link>https://www.freebuf.com/news/351426.html</link>
+      <description><![CDATA[周报时间到！我们总结推荐了本周的热点资讯、安全事件、一周好文和省心工具，保证大家不错过本周的每一个重点！]]></description>
+      <content:encoded><![CDATA[<p>各位 Buffer 周末好，以下是本周「FreeBuf周报」，我们总结推荐了本周的热点资讯、安全事件、一周好文和省心工具，保证大家不错过本周的每一个重点！<img src="https://image.3001.net/images/20220923/1663923572_632d7574ead5a97f52086.jpg!small" alt="" width="690" height="]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Fri, 02 Dec 2022 15:26:33 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[十年未被发现！现代汽车曝重大安全漏洞，黑客可远程解锁、启动汽车]]></title>
+      <link>https://www.freebuf.com/news/351422.html</link>
+      <description><![CDATA[这个漏洞已经存在了10年之久，影响了自2012年生产的现代汽车，以及旗下高端品牌捷尼赛思汽车。]]></description>
+      <content:encoded><![CDATA[<p>据cybernews消息，现代汽车APP存在一个重大安全漏洞。利用这个漏洞，黑客可以<strong><b>远程解锁、启动汽车</b></strong>。更令业界感到惊讶的是，这个漏洞已经<strong><b>存在了10年之久</b></strong>，影响了<strong><b>自2012年生产的现代汽车，以及旗下高端品牌捷尼赛思汽车。但现代汽车发布公告称，该漏洞并未被广泛利用。</b></]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Fri, 02 Dec 2022 15:01:09 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[速看！Redis服务器被植入后门]]></title>
+      <link>https://www.freebuf.com/news/351413.html</link>
+      <description><![CDATA[恶意软件的名称Redigo是由它的目标机器和构建它的编程语言命名的。]]></description>
+      <content:encoded><![CDATA[<p><img src="https://image.3001.net/images/20221202/1669962182_638999c61597793c21612.png!small" alt="" /></p><p>被研究人员称之为Redigo的一种基于Go的新的恶意软件，它一直针对有CVE-2022-0543漏洞的Redis服务器并植入一个隐秘的后门允许命令执行。</p><p>CVE-2]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Fri, 02 Dec 2022 14:26:48 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[医保基金公司Medibank数据大规模泄露后，澳紧急将罚款提高至5000万]]></title>
+      <link>https://www.freebuf.com/articles/351400.html</link>
+      <description><![CDATA[黑客再次在暗网公布Medibank用户敏感数据，这已经是黑客连续数次公布盗窃数据。]]></description>
+      <content:encoded><![CDATA[<p>12月2日，据The Hacker News报道，<strong>黑客再次在暗网公布Medibank用户敏感数据</strong>，这已经是黑客连续数次公布盗窃数据。作为澳大利亚最大的个人医保基金公司，Medibank在10月遭遇重大勒索攻击，<strong>970万用户敏感信息遭窃取。</strong></p><p>在连续数起大规模勒索攻击事件发生后，<strong>澳大利亚政府通过了一项]]></content:encoded>
+      <pubDate>Fri, 02 Dec 2022 13:40:23 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[30 万安卓用户 Facebook 凭证遭“Schoolyard Bully”木马窃取 ]]></title>
+      <link>https://www.freebuf.com/news/351387.html</link>
+      <description><![CDATA[“Schoolyard Bully”木马程序伪装成合法的教育主题应用程序，引诱毫无戒心的用户下载，之窃取Facebook的凭证。]]></description>
+      <content:encoded><![CDATA[<p>The Hacker News 网站披露，一种名为“Schoolyard Bully”木马程序攻击遍布 71 个国家的 30 多万Android用户。该木马程序伪装成合法的教育主题应用程序，引诱毫无戒心的用户下载，随后便窃取其 Facebook 凭证。<img src="https://image.3001.net/images/20221202/1669951938_638971c2684]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Fri, 02 Dec 2022 11:31:48 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[大事件！密码神器LastPass承认黑客窃取了客户数据]]></title>
+      <link>https://www.freebuf.com/news/351313.html</link>
+      <description><![CDATA[LastPass公开承认，通过一个新的漏洞，黑客访问了 LastPass 的第三方云存储服务器，并获得了部分客户的关键信息。]]></description>
+      <content:encoded><![CDATA[<p>11月30日，密码管理工具 LastPass首席执行官 Karim Toubba公开承认，通过一个新的漏洞，黑客访问了 LastPass 的第三方云存储服务器，并获得了部分客户的关键信息。但具体有多少客户因此受到影响，以及黑客窃取了哪些敏感信息暂时未公布。</p><p>在Last Pass公开承认这一数据泄露事件后，该公司进一步强调“由于LastPass采取了先进的零信任架构体系，因此客户的]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Thu, 01 Dec 2022 16:40:37 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[攻击技术研判 | 典型BYOVD利用与Ring0防御削弱技术研判]]></title>
+      <link>https://www.freebuf.com/articles/network/351302.html</link>
+      <description><![CDATA[本文将对Lazarus在本次攻击事件中的BYOVD技术与防御削弱技术进行分析研判。]]></description>
+      <content:encoded><![CDATA[<h2 id="h2-1"><strong>情报背景</strong></h2><p>近期来自ESET与AhnLab的研究人员发布了关于Lazarus攻击团伙恶意Rootkit的分析报告，在两个攻击链中利用了不同的合法驱动突破防御，在Ring0级完成一系列防御削弱操作，最终加载Rootkit达成攻击目的。本文将对Lazarus在本次攻击事件中的BYOVD技术与防御削弱技术进行分析研判。</p><t]]></content:encoded>
+      <category>网络安全</category>
+      <pubDate>Thu, 01 Dec 2022 16:13:57 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[FreeBuf早报 | 一款诈骗软件专门针对发展中国家；Anker 未经用户同意向云端上传信息]]></title>
+      <link>https://www.freebuf.com/news/351288.html</link>
+      <description><![CDATA[Keralty 跨国医疗机构遭遇勒索软件攻击，扰乱了该公司及其子公司的网站和运营。]]></description>
+      <content:encoded><![CDATA[<h2 id="h2-1">全球动态</h2><h3 id="h3-1">1. 勒索软件已冲击国家安全？英国议会启动专项调查</h3><p>英国议会国家安全战略联合委员会（JCNSS）举行了首次证据介绍会，调查其国家安全战略能否有效应对勒索软件威胁。【<a href="https://www.secrss.com/articles/49576"><u>阅读原文</u></a>】</p><h3 id]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Thu, 01 Dec 2022 15:40:20 +0800</pubDate>
+    </item>
+    <item>
+      <title><![CDATA[安装量达 1500 万，这些诈骗软件专门针对发展中国家]]></title>
+      <link>https://www.freebuf.com/news/351277.html</link>
+      <description><![CDATA[以具有欺诈性的条款使用户陷入贷款漩涡，并采用各种方法对借款人进行勒索和骚扰。]]></description>
+      <content:encoded><![CDATA[<p><img src="https://image.3001.net/images/20221201/1669874799_6388446f84b87bdb93265.png!small" alt="" /></p><p>Google Play 和 Apple App Store 上的 280 多个 Android 和 iOS 应用程序以具有欺诈性的条款使用户陷入贷款漩涡，并采用各种方法对借款人]]></content:encoded>
+      <category>资讯</category>
+      <pubDate>Thu, 01 Dec 2022 14:11:13 +0800</pubDate>
+    </item>
+  </channel>
+</rss>

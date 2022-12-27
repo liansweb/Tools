@@ -1,0 +1,1 @@
+http://119.28.222.137:9000/apisix/admin/routes?label=&page=1&page_size=10

