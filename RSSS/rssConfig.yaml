@@ -1,6 +1,6 @@
 # 安全资讯
 seebug: 
-  rsslink: ./seebug_rss
+  rsslink: https://paper.seebug.org/rss
   rssName: Seebug Paper
   entries: 
     - title
