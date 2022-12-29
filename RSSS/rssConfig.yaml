@@ -87,14 +87,6 @@ xinxianquanzhishiku:
     - link
     - published
     - id  
-meituanjishu: 
-  rsslink: https://rsshub.app/meituan/tech/home
-  rssName: 美团技术团队
-  entries: 
-    - title
-    - link
-    - published
-    - id  
 hackernews: 
   rsslink: http://hackernews.cc/feed
   rssName: hacker News
@@ -216,3 +208,147 @@ qinghuadaxueNISL:
     - published
     - id
 # 公众号
+tengxunanquanyingjixiangyingzhongxin: 
+  rsslink: https://wechat2rss.xlab.app/feed/7898375f78fd1018302d54577cd0fd05d5ed324f.xml
+  rssName: 腾讯安全应急响应中心
+  entries: 
+    - title
+    - link
+    - published
+    - id
+secPulse: 
+  rsslink: https://wechat2rss.xlab.app/feed/3bd096819fedf4e94ef23d95c24dd7b2644f3d10.xml
+  rssName: SecPulse安全脉搏
+  entries: 
+    - title
+    - link
+    - published
+    - id
+seebugloudongpingtai: 
+  rsslink: https://wechat2rss.xlab.app/feed/be2795d741304af2370cbf8d31d1e5d3675f8e85.xml
+  rssName: Seebug漏洞平台
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+weibuzaixianyanjiuxiangyingzhongxin: 
+  rsslink: https://wechat2rss.xlab.app/feed/ac64c385ebcdb17fee8df733eb620a22b979928c.xml
+  rssName: 微步在线研究响应中心
+  entries: 
+    - title
+    - link
+    - published
+    - id     
+tengxunxuanwushiyanshi: 
+  rsslink: https://wechat2rss.xlab.app/feed/923c0e2f33b6d39c8a826a90f185725f0edb10e8.xml
+  rssName: 腾讯玄武实验室
+  entries: 
+    - title
+    - link
+    - published
+    - id  
+anquankegongzhonghao: 
+  rsslink: https://wechat2rss.xlab.app/feed/7fc9f5344f14228ba49208282d844349f8afdee7.xml
+  rssName: 安全客
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+changtinganquanketang: 
+  rsslink: https://wechat2rss.xlab.app/feed/ae5cf9ab99ae03269527af0f7a6c05ff14d5863c.xml
+  rssName: 长亭安全课堂
+  entries: 
+    - title
+    - link
+    - published
+    - id  
+lvmengkejiyanjiuyuan: 
+  rsslink: https://wechat2rss.xlab.app/feed/21b46d78e363b85d6927970267ecea4904f06bc8.xml         
+  rssName: 绿盟科技研究通讯
+  entries: 
+    - title
+    - link
+    - published
+    - id  
+qianxinweixieqingbaozhongxin: 
+  rsslink: https://wechat2rss.xlab.app/feed/b93962f981247c0091dad08df5b7a6864ab888e9.xml     
+  rssName: 奇安信威胁情报中心
+  entries: 
+    - title
+    - link
+    - published
+    - id  
+tengxunweixieqingbaozhongxin: 
+  rsslink: https://wechat2rss.xlab.app/feed/034265b14906a59ef7cf1fcbd56699b54a696094.xml
+  rssName: 腾讯安全威胁情报中心
+  entries: 
+    - title
+    - link
+    - published
+    - id  
+anhengxinxianquanyanjiuyuan: 
+  rsslink: https://wechat2rss.xlab.app/feed/a54132c52ec3e562fc896bf803a7fe0aa277bab7.xml
+  rssName: 安恒信息安全研究院
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+sanliulingcert: 
+  rsslink: https://wechat2rss.xlab.app/feed/2dbce2e5f7b49dc8415db7a0ab325929e0f5d8c3.xml
+  rssName: 三六零CERT
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+qianxincert: 
+  rsslink: https://wechat2rss.xlab.app/feed/981c000a01bbdc1f128d260cc91c15d3a6afb530.xml
+  rssName: 奇安信CERT
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+cnvd: 
+  rsslink: https://wechat2rss.xlab.app/feed/edf17c7a01a7152b7a1ca14133258dc4abc1ca61.xml
+  rssName: CNVD漏洞平台
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+lvmengcert: 
+  rsslink: https://wechat2rss.xlab.app/feed/aa2ff3b0167a3f449f3b116717b5350ab64df8c3.xml
+  rssName: 绿盟科技CERT
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+shenxinfuqianlimuanquanshiyanshi: 
+  rsslink: https://wechat2rss.xlab.app/feed/027c7f3b98d9d0f2db84513f0cb94f02e9a8a3d7.xml
+  rssName: 深信服千里目安全实验室
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+qietinganquan: 
+  rsslink: https://wechat2rss.xlab.app/feed/88ffe63b5cffb34f8096461bdeaea02049987c70.xml
+  rssName: 且听安全
+  entries: 
+    - title
+    - link
+    - published
+    - id 
+mofeianquan: 
+  rsslink: https://wechat2rss.xlab.app/feed/e7d4a6f783d2e42b91a70a9f802e590444d62952.xml
+  rssName: 墨菲安全
+  entries: 
+    - title
+    - link
+    - published
+    - id

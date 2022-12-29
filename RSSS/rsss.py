@@ -158,7 +158,8 @@ class rssSpider:
     def insertDataSqlite(self,title,link,rssName,date):
         with sqlite3.connect(self.sqlDataName) as conn:
             cursor = conn.cursor()
-            cursor.execute(f"insert into rssTable(title, link, rssName,date) VALUES ('{title}','{link}','{rssName}','{date}');") 
+            sql = f"insert into rssTable(title, link, rssName,date) VALUES (?,?,?,?);"
+            cursor.execute(sql,(title,link,rssName,date)) 
 
     # 初始化数据
     def initSelectDataSqlite(self):
@@ -267,6 +268,6 @@ if __name__ == "__main__":
         print("文件不存在,程序退出")
         exit()
     except Exception as e:
-        logger.info(e)
+        logger.exception(e)
         print("未知异常,程序退出")
         exit()
