@@ -62,13 +62,13 @@
 ### 1. 创建rsss.sh
 ```
     #!/bin/bash
-    cd /root/rss_analysis (项目的绝对路径)
+    cd /root/RSSS (项目的绝对路径)
     python3 rsss.py 
 ```
 ### 2. 创建定时任务
 ```
     crontab -e  # 编辑用户任务
-    0 */6 * * * sh /root/rss_analysis/rsss.sh   # 每6小时执行一次 
+    0 */6 * * * sh /root/RSSS/rsss.sh   # 每6小时执行一次 
 ```
 
 ![start](./images/start.jpeg)
