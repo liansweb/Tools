@@ -41,28 +41,36 @@ class rssSpider:
         self.bannner()
         logger.info("程序初始化")
         configDict = self.readConfigYaml(configYamlPath)
-        # 获取飞书token
-        self.feishuToken = configDict["feishuToken"]
-        # 获取本地数据库文件名
-        self.sqlDataName = configDict["sqlDataName"]
-        # 获取数据库表名
-        self.sqlTableName = configDict["sqlTableName"]
-        # 获取数据库建表语句
-        self.sqlCretaTable = configDict["sqlCretaTable"]
-        # 创建数据库
-        self.createSqlite(self.sqlDataName,self.sqlCretaTable)
-        # 获取 filterSearch
-        self.filterSearch = configDict["filterSearch"]
+        try:
+            # 获取飞书token
+            self.feishuToken = configDict["feishuToken"]
+            # 获取本地数据库文件名
+            self.sqlDataName = configDict["sqlDataName"]
+            # 获取数据库表名
+            self.sqlTableName = configDict["sqlTableName"]
+            # 获取数据库建表语句
+            self.sqlCretaTable = configDict["sqlCretaTable"]
+            # 创建数据库
+            self.createSqlite(self.sqlDataName,self.sqlCretaTable)
+            # 获取 filterSearch
+            self.filterSearch = configDict["filterSearch"]
+        except KeyError as e:
+            logger.info(e)
+            print(f"config.yaml中缺少必有条件: {e},程序退出")
+            exit()
 
     # 过滤条件匹配
     def filterNameSearch(self,title):
-        # 循环过滤条件
-        for i in self.filterSearch:
-            # 如果标题中存在需匹配的返回True
-            if re.search(i,title,re.I):
-                return True
-            else :
-                return False
+        if self.filterSearch is None:
+            return True
+        else:
+            # 循环过滤条件
+            for i in self.filterSearch:
+                # 如果标题中存在需匹配的返回True
+                if re.search(i,title,re.I):
+                    return True
+                else :
+                    return False
 
     # 推送飞书请求
     def feishuRequests(self,a,rssName):
@@ -93,8 +101,18 @@ class rssSpider:
             }
             }
         }
-        resp = requests.post(url=url,  json=feiShuData, verify=False)
-        logger.info(resp.text)
+        try:
+            resp = requests.post(url=url,  json=feiShuData, verify=False)
+            logger.info(resp.text)
+        except requests.exceptions.Timeout as e:
+            try:
+                print("重新尝试,发送数据")
+                time.sleep(3)
+                resp = requests.post(url=url,  json=feiShuData, verify=False)
+                logger.info(resp.text)
+            except requests.exceptions.Timeout as e:
+                print("请求超时,程序退出")
+                exit()
 
     # 判断添加数据库
     def fsRequests(self,rssDict,rssName):
@@ -207,8 +225,11 @@ class rssSpider:
              
     # 获取到rss链接
     def formatRssTargetDict(self,targetDict):
-        self.rssRequests(rssUrl=targetDict['rsslink'],rssFormat=targetDict,rssName=targetDict['rssName'])
-
+        try:
+            self.rssRequests(rssUrl=targetDict['rsslink'],rssFormat=targetDict,rssName=targetDict['rssName'])
+        except KeyError as e:
+            print(f"请检查rssConfig.yaml中必有字段是否存在,程序退出")
+            exit()
     # 解析rss链接
     def formatRssTarget(self,configFormatDict):
         for i in configFormatDict.keys():
@@ -238,5 +259,14 @@ if __name__ == "__main__":
         rssYamlPath = f"{os.getcwd()}/rssConfig.yaml"
         rs.main(rssYamlPath)
     except KeyboardInterrupt as e:
-        logger.warning("Program exit")
+        logger.info(e)
+        print("外部关闭,程序退出")
+        exit()
+    except FileNotFoundError as e:
+        logger.info(e)
+        print("文件不存在,程序退出")
+        exit()
+    except Exception as e:
+        logger.info(e)
+        print("未知异常,程序退出")
         exit()

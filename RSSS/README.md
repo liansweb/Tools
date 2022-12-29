@@ -10,11 +10,12 @@
 ## 目录结构
 ```
     rsss.py             主程序
-    config.yaml         配置飞书token、数据库名、数据库表名、建表语句(只需修改飞书token)
-    rssConfig.yaml      配置获取的rss链接
+    config.yaml         配置飞书token、数据库名、数据库表名、建表语句(只需修改飞书token),默认字段不可减少
+    rssConfig.yaml      配置获取的rss链接,默认字段不可减少
 ```
 
 ## 支持rss
+可在`rssConfig.yaml`文件中继续追加rss链接
 ```
     FreeBuf互联网安全新媒体平台	
     安全客
