@@ -95,14 +95,6 @@ hackernews:
     - link
     - published
     - id 
-huaiwei: 
-  rsslink: https://www.huawei.com/cn/rss-feeds/psirt/rss
-  rssName: 华为安全通告
-  entries: 
-    - title
-    - link
-    - published
-    - id 
 anquanniu: 
   rsslink: https://www.aqniu.com/feed
   rssName: 安全牛

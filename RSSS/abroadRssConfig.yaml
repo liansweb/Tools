@@ -1,0 +1,16 @@
+APISec: 
+  rsslink: https://www.inoreader.com/stream/user/1005554036/tag/API%E5%AE%89%E5%85%A8
+  rssName: API SEC
+  entries: 
+    - title
+    - link
+    - published
+    - id
+bleepingcomputer:
+  rsslink: https://www.bleepingcomputer.com/feed/
+  rssName: bleepingcomputer
+  entries: 
+    - title
+    - link
+    - published
+    - id

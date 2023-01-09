@@ -54,6 +54,7 @@ class rssSpider:
             self.createSqlite(self.sqlDataName,self.sqlCretaTable)
             # 获取 filterSearch
             self.filterSearch = configDict["filterSearch"]
+            self.rssPath = configDict["rssPath"]
         except KeyError as e:
             logger.info(e)
             print(f"config.yaml中缺少必有条件: {e},程序退出")
@@ -66,11 +67,11 @@ class rssSpider:
         else:
             # 循环过滤条件
             for i in self.filterSearch:
+                print("+====+",i,title)
                 # 如果标题中存在需匹配的返回True
-                if re.search(i,title,re.I):
-                    return True
-                else :
-                    return False
+                if re.search(i,title, re.MULTILINE | re.IGNORECASE):
+                    return True     
+            return False    
 
     # 推送飞书请求
     def feishuRequests(self,a,rssName):
@@ -257,7 +258,7 @@ if __name__ == "__main__":
     try:
         configYamlPath = f"{os.getcwd()}/config.yaml"
         rs = rssSpider(configYamlPath)
-        rssYamlPath = f"{os.getcwd()}/rssConfig.yaml"
+        rssYamlPath = rs.rssPath
         rs.main(rssYamlPath)
     except KeyboardInterrupt as e:
         logger.info(e)

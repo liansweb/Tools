@@ -10,11 +10,12 @@
 ## 目录结构
 ```
     rsss.py             主程序
-    config.yaml         配置飞书token、数据库名、数据库表名、建表语句(只需修改飞书token),默认字段不可减少
-    rssConfig.yaml      配置获取的rss链接(可追加),默认字段不可减少
+    config.yaml         配置飞书token、数据库名、数据库表名、建表语句(只需修改飞书token)
+    rssConfig.yaml      配置国内rss链接(可追加),可在config.yaml中 rssPath 修改
+    abroadRssConfig     配置国外rss链接(可追加),可在config.yaml中 rssPath 修改，需要放到国外服务器上
 ```
 
-## 过滤条件
+## config.yaml过滤条件
 可在config.yaml中`filterSearch`下设置过滤条件
 ```
     - 漏洞
@@ -25,8 +26,9 @@
     - 复现
     - 技术
 ```
+不需要过滤条件的，可将过滤条件全部删除，字段保留。
 
-## 设置定时任务
+## 服务器设置定时任务
 ### 1. 创建rsss.sh
 ```
     #!/bin/bash
@@ -39,7 +41,7 @@
     0 */6 * * * sh /root/RSSS/rsss.sh   # 每6小时执行一次 
 ```
 
-## 支持rss
+## 支持rss列表
 可在`rssConfig.yaml`文件中继续追加rss链接
 
 参考链接：https://www.freebuf.com/sectool/351368.html
@@ -58,7 +60,6 @@
     信息安全知识库
     美团技术团队
     HackerNews	
-    华为安全通告
     安全牛	
     腾讯科恩实验室官方博客	
     Noah Lab - 360	
@@ -95,6 +96,12 @@
     且听安全
     墨菲安全
 ```
+可在`abroadRssConfig.yaml`文件中继续追加rss链接
+```
+    https://www.inoreader.com
+    https://www.bleepingcomputer.com
+```
+
 
 ![start](./images/start.jpeg)
 ![end](./images/end.jpeg)
