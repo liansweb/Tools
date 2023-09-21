@@ -1,0 +1,1 @@
+http://47.241.12.228:8089/api/v1/canal/config/1/0http://8.219.194.227:8089/api/v1/canal/config/1/0http://172.105.112.56:8089/api/v1/canal/config/1/0http://8.219.221.142:8089/api/v1/canal/config/1/0http://161.117.225.10:8089/api/v1/canal/config/1/0http://172.105.112.56:8090/api/v1/canal/config/1/0

@@ -61,6 +61,7 @@ class checkTarget:
             targetFilePath = dirPath +"/"+ targetFilePath
         print(f"\033[0;32m[+] 写入文件 : {targetFilePath}   \033[0m")
         with open(targetFilePath,"w") as fp:
+            print(requestsTargetDict)
             for i in requestsTargetDict.keys():
                 fp.writelines(requestsTargetDict[i]+"\n")
 

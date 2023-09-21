@@ -1,0 +1,3 @@
+http://51.91.121.122:80/jsonapi/user/user
+
+ curl -X  'http://51.91.121.122/jsonapi/user/user' -d '{ "data": { "type": "user--user", "attributes": { "name": "promfoe", "mail": "admin@email.com", "pass": { "value": "passwd" } } } }'

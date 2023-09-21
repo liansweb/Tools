@@ -1,0 +1,2 @@
+http://106.14.20.122:8086/v1/auth/users/login
+http://60.220.187.94:8003/v1/auth/users/login

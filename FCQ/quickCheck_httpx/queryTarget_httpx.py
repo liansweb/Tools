@@ -4,191 +4,193 @@ import asyncio
 import time
 import yaml
 import sys
-import string
 import os
 
-class queryTarget():
+
+class QueryTarget:
+    def __init__(self):
+        yaml_path = "./config.yaml"
+        config_yaml = self.read_yaml(yaml_path)
+        self.config_proxies = config_yaml["proxies"]
+        self.config_timeout = config_yaml["timeout"]
+        self.config_follow_redirects = config_yaml["follow_redirects"]
+        self.config_headers = config_yaml["headers"]
+        self.config_cookies = config_yaml["cookies"]
+        self.successful_target = None
+        self.num_all_target = 0
+        self.num_success_target = 0
+
     def title(self):
         print(f"""
+            quick check
+        Yaml POC 信息:
+            目标dir      :    \033[0;34m {self.poc_target_dir} \033[0m
+            目标path     :    \033[0;34m {self.poc_target_path} \033[0m
+            请求method   :    \033[0;34m {self.poc_target_method} \033[0m
+            超时time     :    \033[0;34m {self.poc_target_timeout} \033[0m
+            输出dir      :    \033[0;34m {self.poc_target_output_dir} \033[0m
+            匹配data     :    \033[0;34m {self.poc_target_re_expression} \033[0m
+        """)
 
-                    quick check
-
-Yaml POC 信息:
-    目标dir      :    \033[0;34m {self.poc_targetDir} \033[0m
-    目标path     :    \033[0;34m {self.poc_targetPath} \033[0m
-    请求method   :    \033[0;34m {self.poc_targetMethod} \033[0m
-    超时time     :    \033[0;34m {self.poc_targetTimeout} \033[0m
-    输出dir      :    \033[0;34m {self.poc_targetOutputDir} \033[0m
-    匹配data     :    \033[0;34m {self.poc_targetReExpression} \033[0m
-
-            """)
-
-    # 请求目录下全部文件
-    def removePutDirTarget(self,dirPath):
-        self.readOsPath(dirPath)
-        for i in self.filesList:
+    def remove_put_dir_target(self, dir_path):
+        self.read_os_path(dir_path)
+        for i in self.files_list:
             os.remove(i)
 
-    # 创建输出目录、目录存在、清楚目录下所有文件
-    def outPutDirTarget(self,dirPath):
-        path = dirPath.strip()
-        path = path.rstrip("\\")
-        isExists = os.path.exists(path)
-        if not isExists:
+    def output_dir_target(self, dir_path):
+        path = dir_path.strip().rstrip("\\")
+        is_exists = os.path.exists(path)
+        if not is_exists:
             os.makedirs(path)
             print(f"\033[0;32m[+] 输出目录: {path} 创建成功  \033[0m")
         else:
             print(f"\033[0;33m[*] 输出目录: {path} 已存在  \033[0m")
-            self.removePutDirTarget(dirPath)
+            self.remove_put_dir_target(dir_path)
 
-    # 创建输出文件
-    def writeFile(self,filePath,successfulTarget:list):
-        if successfulTarget :
-            filePath = re.search("/(\w+\.\w+)",filePath)[1]
-            targetOutputDir = self.poc_targetOutputDir + filePath
-            print(f"\033[0;32m[+] 请求成功 : {len(successfulTarget)} 条  \033[0m")
-            self.numSuccessTarget = self.numSuccessTarget + len(successfulTarget)
-            print(f"\033[0;32m[+] 写入文件 : {targetOutputDir}   \033[0m")
-            with open(targetOutputDir,"w") as fp:
-                for i in successfulTarget:
-                    fp.writelines(i)
+    def write_file(self, file_path, successful_target):
+        if successful_target:
+            file_path = re.search("/(\w+\.\w+)", file_path)[1]
+            target_output_dir = self.poc_target_output_dir + file_path
+            print(f"\033[0;32m[+] 请求成功 : {len(successful_target)} 条  \033[0m")
+            self.num_success_target += len(successful_target)
+            print(f"\033[0;32m[+] 写入文件 : {target_output_dir}   \033[0m")
+            with open(target_output_dir, "w") as fp:
+                for item in successful_target:
+                    fp.write(item+"\n")
 
-    # 读取yaml文件
-    def readYaml(self,yamlPath:string):
-        with open(yamlPath,"r") as fp:
-            return  yaml.safe_load(fp)
+    def read_yaml(self, yaml_path: str):
+        with open(yaml_path, "r") as fp:
+            return yaml.safe_load(fp)
 
-    # 获取PocYaml中的配置项
-    def readPocYaml(self,pocYaml:string):
-        pocYamlDict = self.readYaml(yamlPath=pocYaml)
-        self.poc_targetPath = pocYamlDict["targetPath"]
-        self.poc_targetMethod = pocYamlDict["targetMethod"]
-        self.poc_targetTimeout = pocYamlDict["targetTimeout"]
-        self.poc_targetProfixs = pocYamlDict["targetProfixs"]
-        self.poc_targetAllowRedirects = pocYamlDict["targetAllowRedirects"]
-        self.poc_targetHeaders = pocYamlDict["targetHeaders"]
-        self.poc_targetJson = pocYamlDict["targetJson"]
-        self.poc_targetData = pocYamlDict["targetData"]
-        self.poc_targetReExpression = pocYamlDict["targetReExpression"]
-        self.poc_targetDir = pocYamlDict["targetDir"]
-        self.poc_targetOutputDir = pocYamlDict["targetOutputDir"]
-        self.poc_targetRestText = pocYamlDict["targetRestText"]
+    def read_poc_yaml(self, poc_yaml: str):
+        poc_yaml_dict = self.read_yaml(poc_yaml)
+        self.poc_target_path = poc_yaml_dict["targetPath"]
+        self.poc_target_method = poc_yaml_dict["targetMethod"]
+        self.poc_target_timeout = poc_yaml_dict["targetTimeout"]
+        self.poc_target_profixs = poc_yaml_dict["targetProfixs"]
+        self.poc_target_allow_redirects = poc_yaml_dict["targetAllowRedirects"]
+        self.poc_target_headers = poc_yaml_dict["targetHeaders"]
+        self.poc_target_json = poc_yaml_dict["targetJson"]
+        self.poc_target_data = poc_yaml_dict["targetData"]
+        self.poc_target_re_expression = poc_yaml_dict["targetReExpression"]
+        self.poc_target_dir = poc_yaml_dict["targetDir"]
+        self.poc_target_output_dir = poc_yaml_dict["targetOutputDir"]
+        self.poc_target_rest_text = poc_yaml_dict["targetRestText"]
 
-    # 初始化程序 获取congfig.yaml中的配置项
-    def __init__(self):
-        yamlPath = "./config.yaml"
-        configYaml = self.readYaml(yamlPath)
-        self.config_proxies = configYaml["proxies"]
-        self.config_timeout = configYaml["timeout"]
-        self.config_follow_redirects = configYaml["follow_redirects"]
-        self.config_headers = configYaml["headers"]
-        self.config_cookies = configYaml["cookies"]
-        self.successfulTarget = None
-        self.numAllTarget = 0
-        self.numSuccessTarget = 0
-
-    # 获取目录下所有文件
-    def readOsPath(self,dirPath):
-        targetDir = dirPath
-        filesList = []
-        for dirpath, dirnames, filenames in os.walk(targetDir):
+    def read_os_path(self, dir_path):
+        target_dir = dir_path
+        files_list = []
+        for dirpath, dirnames, filenames in os.walk(target_dir):
             for i in filenames:
-                filePath = targetDir + i
-                filesList.append(filePath)
-        print(f"\033[0;32m[+] 读取目标文件路径成功 : {filesList}  \033[0m")
-        self.filesList = filesList
+                file_path = target_dir + i
+                files_list.append(file_path)
+        print(f"\033[0;32m[+] 读取目标文件路径成功 : {files_list}  \033[0m")
+        self.files_list = files_list
 
-    # 发送请求及响应匹配
-    async def req(self,url):
-        self.successfulTarget = []
-        ReExpression = {}
-        if self.poc_targetPath:
-            url = url.rstrip() + self.poc_targetPath
+    async def req(self, url):
+        self.successful_target = []
+        re_expression = {}
+        if self.poc_target_path:
+            url = url.rstrip() + self.poc_target_path
         try:
-            async with httpx.AsyncClient(proxies=self.config_proxies, timeout=self.config_timeout, headers=self.config_headers,follow_redirects=self.config_follow_redirects,cookies=self.config_cookies) as client:
-                res = await client.request(method=str.lower(self.poc_targetMethod), url=url,headers=self.poc_targetHeaders,data=self.poc_targetData,json=self.poc_targetJson,timeout=self.poc_targetTimeout,follow_redirects=self.poc_targetAllowRedirects)
-                ReExpression["respStatusCode"] = res.status_code
-                ReExpression["respHeaders"] = str(res.headers)
-                ReExpression["respBody"] = str(res.text)
+            async with httpx.AsyncClient(
+                proxies=self.config_proxies,
+                timeout=self.config_timeout,
+                headers=self.config_headers,
+                follow_redirects=self.config_follow_redirects,
+                cookies=self.config_cookies,
+            ) as client:
+                res = await client.request(
+                    method=str.lower(self.poc_target_method),
+                    url=url,
+                    headers=self.poc_target_headers,
+                    data=self.poc_target_data,
+                    json=self.poc_target_json,
+                    timeout=self.poc_target_timeout,
+                    follow_redirects=self.poc_target_allow_redirects,
+                )
+                re_expression["respStatusCode"] = res.status_code
+                re_expression["respHeaders"] = str(res.headers)
+                re_expression["respBody"] = str(res.text)
         except Exception as e:
+            print(e)
             print(f"\033[0;31m[!] 目标请求失败 : {url}   \033[0m")
 
-        # 匹配模块
-        self.ReExpression = ReExpression
-        if self.ReExpression :
-            reBoolean = None
-            # TODO 只能匹配单个、需要实现多个
-            if self.poc_targetReExpression :
-                if self.ReExpression["respStatusCode"] == self.poc_targetReExpression["respStatusCode"]:
-                    reBoolean = True
-                    for i in self.poc_targetReExpression.keys():
-                        if i == "respStatusCode":
-                            continue
-                        if self.poc_targetReExpression[i]:
-                            if re.search(self.poc_targetReExpression[i],self.ReExpression[i]):
-                                reBoolean = True
+        self.re_expression = re_expression
+        if self.re_expression:
+            re_boolean = None
+            if self.poc_target_re_expression:
+                try:
+                    if self.re_expression["respStatusCode"] == self.poc_target_re_expression[
+                        "respStatusCode"
+                    ]:
+                        re_boolean = True
+                        for i in self.poc_target_re_expression.keys():
+                            if i == "respStatusCode":
+                                continue
+                            if self.poc_target_re_expression[i]:
+                                if re.search(
+                                    self.poc_target_re_expression[i],
+                                    self.re_expression[i],
+                                ):
+                                    re_boolean = True
+                                else:
+                                    re_boolean = False
+                                    break
                             else:
-                                reBoolean = False
+                                re_boolean = True
                                 break
-                        else:
-                            reBoolean = True
-                            break
+                except KeyError as e:
+                    print(e)
             else:
-                reBoolean = True
+                re_boolean = True
 
-            # 获取匹配结果
-            if reBoolean:
+            if re_boolean:
                 print(f"\033[0;32m[+] 目标匹配成功 : {url}   \033[0m")
-                self.successfulTarget.append(url)
-
+                self.successful_target.append(url)
             else:
                 print(f"\033[0;33m[*] 目标匹配失败 : {url}   \033[0m")
 
-            # 打印输出 TODO 输出格式美化
-            if self.poc_targetRestText is True:
-                print(ReExpression["respStatusCode"])
-            elif self.poc_targetRestText == 1:
-                print(ReExpression["respStatusCode"])
-                print(ReExpression["respHeaders"])
-            elif self.poc_targetRestText == 2:
-                print(ReExpression["respStatusCode"])
-                print(ReExpression["respHeaders"])
-                print(ReExpression["respBody"])
+            if self.poc_target_rest_text is True:
+                print(self.re_expression["respStatusCode"])
+            elif self.poc_target_rest_text == 1:
+                print(self.re_expression["respStatusCode"])
+                print(self.re_expression["respHeaders"])
+            elif self.poc_target_rest_text == 2:
+                print(self.re_expression["respStatusCode"])
+                print(self.re_expression["respHeaders"])
+                print(self.re_expression["respBody"])
 
-
-    # 并发请求
-    async def reqTask(self):
-
-        filesList = self.filesList
+    async def req_task(self):
+        files_list = self.files_list
         tasks = []
-        for i in filesList:
-            filePath = i
+        for i in files_list:
+            file_path = i
             print(f"\033[0;32m[+] 正在读取 : {i} 文件中目标  \033[0m")
-            # 读取文件目标、发起请求
-            with open(filePath, "r") as fp:
+            with open(file_path, "r") as fp:
                 a = fp.readlines()
             print(f"\033[0;32m[+] 包含目标地址 : {len(a)} 条  \033[0m")
-            self.numAllTarget = self.numAllTarget + len(a)
-            for i in range(len(a)):  # 控制并发量，现在是100
+            self.num_all_target += len(a)
+            for i in range(len(a)):
                 task = asyncio.create_task(self.req(a[i]))
                 tasks.append(task)
             await asyncio.wait(tasks)
 
-            self.writeFile(filePath, self.successfulTarget)
+            self.write_file(file_path, self.successful_target)
 
-    # 主程序
     def main(self):
         now = time.time()
-        self.readPocYaml(sys.argv[1])
+        self.read_poc_yaml(sys.argv[1])
         self.title()
-        self.outPutDirTarget(self.poc_targetOutputDir)
-        self.readOsPath(self.poc_targetDir)
-        asyncio.run(self.reqTask())
+        self.output_dir_target(self.poc_target_output_dir)
+        self.read_os_path(self.poc_target_dir)
+        asyncio.run(self.req_task())
         end = time.time()
         print(f"\033[0;32m[+] 最终耗时 :", end - now, "\033[0m")
-        print(f"\033[0;32m[+] 全部目标 :", self.numAllTarget, "\033[0m")
-        print(f"\033[0;32m[+] 成功目标 :", self.numSuccessTarget, "\033[0m")
+        print(f"\033[0;32m[+] 全部目标 :", self.num_all_target, "\033[0m")
+        print(f"\033[0;32m[+] 成功目标 :", self.num_success_target, "\033[0m")
 
-if "__main__" == __name__:
-    start = queryTarget()
+
+if __name__ == "__main__":
+    start = QueryTarget()
     start.main()

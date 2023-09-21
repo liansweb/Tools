@@ -1,0 +1,1 @@
+http://20.237.207.110:9000/minio/bootstrap/v1/verify

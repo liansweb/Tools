@@ -1,0 +1,18 @@
+targetPath: /v1/auth/users/login
+targetMethod: post
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    Content-Type: application/x-www-form-urlencoded
+targetJson:
+targetData: 'username=nacos&password=nacos'
+targetReExpression:
+    respStatusCode: 200
+    # respHeaders: application/json
+    respBody: 
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/nacos默认密码/
+targetRestText: 2

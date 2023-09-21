@@ -1,0 +1,18 @@
+targetPath: /api/v1/canal/config/1/0
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    Content-Type: application/json
+targetJson:
+targetData: 
+targetReExpression:
+    respStatusCode: 200
+    # respHeaders: application/json
+    respBody: \"code\"\s*:\s*20000
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/canal_api_cloud_key_information_leakage/
+targetRestText: 2

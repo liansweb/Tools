@@ -1,0 +1,5 @@
+http://13.250.60.170:8089/api/v1/user/login
+http://192.46.226.74:8089/api/v1/user/login
+http://172.105.112.56:8090/api/v1/user/login
+http://119.13.109.190:8089/api/v1/user/login
+http://172.105.112.56:8089/api/v1/user/login

@@ -1,4 +1,4 @@
-## FCQ
+## FOFA COUNTRY QUERY
 ## 快速开始
 ```
     pip3 install -r requirements.txt

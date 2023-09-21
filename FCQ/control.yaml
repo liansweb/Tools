@@ -1,11 +1,11 @@
-email: null
+email: 
 fields: protocol,ip,port
 fieldsJoin: $1://$2:$3
 full: false
-key: null
-page: 1
-query: app="YApi" && country="US"
+key: 
+page: 100
+query: 'app="Spring-Boot-Admin" && header!="X-Xss-Protection: 1; mode=block"'
 resultSuffix: txt
-size: 100
+size: 100.0
 sleep: 1
 url: https://fofa.info/api/v1/search/all?email=

