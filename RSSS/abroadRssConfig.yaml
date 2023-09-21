@@ -1,6 +1,6 @@
-APISec: 
+cdxyRss: 
   rsslink: https://www.inoreader.com/stream/user/1005554036/tag/API%E5%AE%89%E5%85%A8
-  rssName: API SEC
+  rssName: cdxy 
   entries: 
     - title
     - link
@@ -14,3 +14,62 @@ bleepingcomputer:
     - link
     - published
     - id
+apisecurity:
+  rsslink: https://apisecurity.io/feed/index.xml
+  rssName: apisecurity
+  entries: 
+    - title
+    - link
+    - published
+    - id
+curity:
+  rsslink: https://curity.io/blog-feed.xml
+  rssName: curity
+  entries: 
+    - title
+    - link
+    - published
+    - id
+exploit-db:
+  rsslink: https://www.exploit-db.com/rss.xml
+  rssName: exploit-db
+  entries: 
+    - title
+    - link
+    - published
+    - id
+
+# 威胁情报 https://asec.ahnlab.com/en/feed/
+ahnlab:
+  rsslink: https://asec.ahnlab.com/en/feed/
+  rssName: exploit-db
+  entries: 
+    - title
+    - link
+    - published
+    - id
+cadosecurity:
+  rsslink: https://www.cadosecurity.com/feed/
+  rssName: cadosecurity
+  entries: 
+    - title
+    - link
+    - published
+    - id
+ibmcloud:
+  rsslink: https://exchange.xforce.ibmcloud.com/rss/all
+  rssName: ibmcloud
+  entries: 
+    - title
+    - link
+    - published
+    - id
+
+    
+# twitterApiSecurity:
+#   rsslink: https://www.inoreader.com/stream/user/1005495050/tag/all-articles
+#   rssName: twitter api security
+#   entries: 
+#     - title
+#     - link
+#     - published

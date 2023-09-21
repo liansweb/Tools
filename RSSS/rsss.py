@@ -136,7 +136,7 @@ class rssSpider:
                     continue
             else:
                 if self.filterNameSearch(a[0]) is True:
-                    if self.selectDataSqlite(a[1]) is True :
+                    if self.selectDataSqlite(column="link",link=a[1]) is True and self.selectDataSqlite(column="title",link=a[0]) is True:
                         self.insertDataSqlite(a[0],a[1],rssName,a[2])
                         self.feishuRequests(a,rssName=rssName)
                     else:
@@ -145,16 +145,16 @@ class rssSpider:
                     continue
     
     # 查询数据
-    def selectDataSqlite(self,link):
+    def selectDataSqlite(self,column,link):
         with sqlite3.connect(self.sqlDataName) as conn:
             cursor = conn.cursor()
-            cursor.execute(f"SELECT * FROM {self.sqlTableName} WHERE link='{link}'")
+            cursor.execute(f"SELECT * FROM {self.sqlTableName} WHERE {column}='{link}'")
             rows = cursor.fetchall()
             if len(rows) == 0:
                 return True
             else:
                 return False
-    
+
     # 添加数据
     def insertDataSqlite(self,title,link,rssName,date):
         with sqlite3.connect(self.sqlDataName) as conn:

@@ -344,3 +344,35 @@ mofeianquan:
     - link
     - published
     - id
+vipread:
+  rsslink: https://vipread.com/rss
+  rssName: vipread
+  entries: 
+    - title
+    - link
+    - published
+    - id
+hackinn:
+  rsslink: https://www.hackinn.com/index.php/feed/
+  rssName: hackinn
+  entries: 
+    - title
+    - link
+    - published
+    - id
+govuln:
+  rsslink: https://govuln.com/news/feed/
+  rssName: govuln
+  entries: 
+    - title
+    - link
+    - published
+    - id
+leavesongs:
+  rsslink: https://www.leavesongs.com/feed/
+  rssName: leavesongs
+  entries: 
+    - title
+    - link
+    - published
+    - id
