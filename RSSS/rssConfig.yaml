@@ -111,22 +111,6 @@ tengxunenke:
     - link
     - published
     - id  
-noahblog: 
-  rsslink: http://noahblog.360.cn/rss
-  rssName: Noah Lab - 360
-  entries: 
-    - title
-    - link
-    - published
-    - id 
-tianrongxin: 
-  rsslink: http://blog.topsec.com.cn/feed
-  rssName: 天融信阿尔法实验室
-  entries: 
-    - title
-    - link
-    - published
-    - id
 douxiang: 
   rsslink: https://blog.riskivy.com/feed
   rssName: 斗象能力中心 - 网藤风险感知
@@ -136,7 +120,7 @@ douxiang:
     - published
     - id
 seebugloudong: 
-  rsslink: https://www.seebug.org/rss/new
+  rsslink: https://www.seebug.org/rss/new/
   rssName: Seebug漏洞社区
   entries: 
     - title
