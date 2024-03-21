@@ -1,0 +1,2 @@
+http://212.193.88.186:8080/api/v1/namespaces/kube-system/secrets
+http://212.193.88.186:8080/api/v1/namespaces/kube-system/secrets

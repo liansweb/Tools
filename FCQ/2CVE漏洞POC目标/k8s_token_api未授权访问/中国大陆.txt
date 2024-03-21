@@ -1,0 +1,1 @@
+https://114.116.29.67:6443/api/v1/namespaces/kube-system/secrets

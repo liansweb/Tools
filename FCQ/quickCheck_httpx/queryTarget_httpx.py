@@ -112,9 +112,8 @@ class QueryTarget:
                 re_expression["respStatusCode"] = res.status_code
                 re_expression["respHeaders"] = str(res.headers)
                 re_expression["respBody"] = str(res.text)
-        except Exception as e:
-            print(e)
-            print(f"\033[0;31m[!] 目标请求失败 : {url}   \033[0m")
+        except Exception:
+            print(f"\033[0;31m[!] 目标请求失败 : {url} \033[0m")
 
         self.re_expression = re_expression
         if self.re_expression:

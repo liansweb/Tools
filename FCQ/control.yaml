@@ -3,8 +3,8 @@ fields: protocol,ip,port
 fieldsJoin: $1://$2:$3
 full: false
 key: 
-page: 100
-query: 'app="Spring-Boot-Admin" && header!="X-Xss-Protection: 1; mode=block"'
+page: 1000000000000000000000000000000000000000000000000000000
+query: app="APACHE-Solr"
 resultSuffix: txt
 size: 100.0
 sleep: 1

@@ -1,16 +1,17 @@
-targetPath:
+targetPath: /solr/admin/cores?indexInfo=false&wt=json
 targetMethod: get
 targetTimeout: 2
 targetProfixs:
+    http: 127.0.0.1:7890
+    https: 127.0.0.1:7890
 targetAllowRedirects: false
 targetHeaders:
 targetJson:
-targetData:
+targetData: 
 targetReExpression:
     respStatusCode: 200
-    respHeaders: nginx/\d+
-#    respHeaders:
-#    respBody:
-targetDir: /Users/ls/PycharmProjects/pythonProject1/scriptsTools/2多进程/1/test/
-targetOutputDir: ../2/Users/ls/PycharmProjects/pythonProject1/scriptsTools/2多进程/1/test/test/
-targetRestText: 1
+    # respHeaders: application/json
+    respBody: 'responseHeader'
+targetDir: ../countryQueryResult/
+targetOutputDir: ../2CVE漏洞POC目标/test/
+targetRestText: 2

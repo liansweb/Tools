@@ -1,4 +1,4 @@
-targetPath: /solr/admin/cores?indexInfo=false&wt=json
+targetPath: /pods
 targetMethod: get
 targetTimeout: 2
 targetProfixs:
@@ -10,8 +10,7 @@ targetJson:
 targetData: 
 targetReExpression:
     respStatusCode: 200
-    # respHeaders: application/json
-    respBody: 'responseHeader'
+    respBody: metadata
 targetDir: ../countryQueryResult/
-targetOutputDir: ../2CVE漏洞POC目标/test/
-targetRestText: 2
+targetOutputDir: ../2CVE漏洞POC目标/kubele-10250-API-未授权访问/
+targetRestText: 1

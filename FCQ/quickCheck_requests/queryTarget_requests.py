@@ -108,6 +108,7 @@ class checkTarget:
                 respStop  = True
 
             if respStop == False:
+                print(resp.text)
 
                 respDict["respStatusCode"] = resp.status_code
                 respDict["respHeaders"] = resp.headers
