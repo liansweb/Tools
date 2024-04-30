@@ -1,17 +1,20 @@
 ## FOFA COUNTRY QUERY
+
 ## 快速开始
 ```
-    pip3 install -r requirements.txt
-    python3 fofaQuery.py 'app="Elasticsearch" && status_code=200'
+    1. pip3 install -r requirements.txt
+    2. mv control-template.yaml control.yaml
+        补充control.yaml中的email和key
+    3. python3 fofaQuery.py 'app="Elasticsearch" && status_code=200'
     ================快速验证脚本==================
     httpx模块
         cd quickCheck_httpx
         pip3 install -r requirements.txt
         python3 queryTarget_httpx.py ../1yamlPoc/Elasticsearch.yaml
     requests模块    
-        cd quickCheck_requests
+    4.    cd quickCheck_requests
         pip3 install -r requirements.txt
-        python3 queryTarget_requests.py ../1yamlPoc/Elasticsearch.yaml
+    5.    python3 queryTarget_requests.py ../1yamlPoc/Elasticsearch.yaml
 ```
 ## 文件介绍
 ### 目录结构
@@ -81,4 +84,3 @@
 
 ### quickCheck_httpx
 ![图片文字](./jpeg/7.jpeg)
-
