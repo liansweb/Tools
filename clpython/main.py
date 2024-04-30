@@ -3,51 +3,6 @@
 def main():
     
     from lib import get_url,write_template,get_method,get_protocol,get_host,get_port,get_path,get_query,get_headers,get_body,get_proxy
-    curl_command = """curl -X 'GET' 'http://10.2.13.173:10150/dolphinscheduler/projects/list' -H 'accept: */*' -H 'token: 800c2d44f6c93041caf3e0b07e6679c3'"""
-    curl_command = """curl -X 'GET' \
-  'http://10.2.13.173:10150/dolphinscheduler/tenants?pageNo=1&pageSize=10' \
-  -H 'accept: */*'"""
-    curl_command = """curl -X 'GET' \
-  'http://10.2.13.173:10150/dolphinscheduler/tenants/list' \
-  -H 'accept: */*'"""
-    curl_command = """"curl -X 'POST' \
-  'http://10.2.13.173:10150/dolphinscheduler/projects/12140457493600/process-definition?description=test&locations=null&name=test&tenantCode=starcross&taskRelationJson=null&taskDefinitionJson=[%7B%22code%22:%2011264723741504,%22name%22:%22ExecuteSQL%22,%22version%22:8,%22projectCode%2212140457493600,%22userId%22:1,%22taskType%22:%22SHELL%22,%22taskParamMap%22:%7B%22SQL_STATEMENT%22:%22world%22%7D,%22taskParams%22:%7B%22rawScript%22:%20%22#!/bin/bash%5Cn#%20%E4%BD%BF%E7%94%A8base64%E8%A7%A3%E7%A0%81%5CnDECODED_SQL=$(echo%201)%22%7D,%22flag%22:%22YES%22,%22taskPriority%22:%22MEDIUM%22,%22workerGroup%22:%22starcross%22,%22timeoutFlag%22:%22CLOSE%22,%22taskExecuteType%22:%22BATCH%22%7D]' \
-  -H 'accept: */*' \
-  -d ''
-    """
-    curl_command = """
-    curl -X 'GET' \
-  'http://10.2.13.173:10150/dolphinscheduler/projects/12140457493600/task-definition/gen-task-codes?genNum=123' \
-  -H 'accept: */*'
-    """
-    curl_command = """
-    curl -X 'GET' \
-  'http://10.2.13.173:10150/dolphinscheduler/projects/12140457493600/process-definition?pageNo=1&pageSize=10' \
-  -H 'accept: */*'
-    """
-    curl_command = """
-    curl -X 'POST' \
-  'http://10.2.13.173:10150/dolphinscheduler/access-tokens?expireTime=2024-01-09%2022:39:11&userId=1' \
-  -H 'accept: */*' \
-  -d ''
-    """
-    
-    curl_command = """
-    curl -X 'POST' \
-  'http://10.2.13.173:10150/dolphinscheduler/login?userName=admin&userPassword=H4ah8ajxna' \
-  -H 'accept: */*' \
-  -d ''
-    """
-    
-    curl_command = """
-    curl -X 'GET' \
-  'http://10.2.13.173:10150/dolphinscheduler/projects/list' \
-  -H 'accept: */*'
-    """
-    
-    curl_command = """
-    curl -XPOST 'https://rocket-pro.nioint.com/api/token' -H "Content-Type: application/json" -d '{"username":"ctd","password":"ctd123456"}'
-    """
     
     curl_command = """
     curl 'https://mp.weixin.qq.com/cgi-bin/searchbiz?action=search_biz&begin=0&count=5&query=%E7%BB%86%E6%9E%9D%E6%9C%AB%E8%8A%82&token=682362262&lang=zh_CN&f=json&ajax=1' \
