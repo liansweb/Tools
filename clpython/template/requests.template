@@ -1,0 +1,42 @@
+# pip3 install requests
+import requests
+import json
+
+method = ${method}
+
+protocol = ${protocol}
+
+host  = ${host}
+
+port = ${port}
+
+path = ${path}
+
+query = ${query}
+
+headers = ${headers}
+
+body = ${body}
+
+proxy = ${proxy}
+
+
+
+url = protocol+host+':'+str(port)+path
+
+# TODO: timeout Default=10
+# TODO: verify Default=False
+
+request = getattr(requests,method.lower())
+resp = request(
+        url=url,
+        headers=headers,
+        params=query,
+        data=json.dumps(body),
+        proxies=proxy,
+        verify=False,
+        timeout=10
+    )
+
+print(resp.status_code)
+print(resp.text)
