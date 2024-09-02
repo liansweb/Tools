@@ -12,6 +12,10 @@
 
 获取rss信息
 
+## generate_requirements
+
+生成python依赖
+
 ## TODO
 
 ### fuzz

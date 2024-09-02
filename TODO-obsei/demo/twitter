@@ -1,0 +1,16 @@
+# from obsei.source.twitter_source import TwitterCredentials, TwitterSource, TwitterSourceConfig
+
+# # initialize twitter source config
+# source_config = TwitterSourceConfig(
+#    keywords=["issue"], # Keywords, @user or #hashtags
+#    lookup_period="1h", # Lookup period from current time, format: `<number><d|h|m>` (day|hour|minute)
+#    cred_info=TwitterCredentials(
+#        # Enter your twitter consumer key and secret. Get it from https://developer.twitter.com/en/apply-for-access
+#        consumer_key="Q3cTyN84FfMADsB5PEOeH9EL2",
+#        consumer_secret="SQfgy569NEMIXCtKXNc3YYF5NjzUHDIh54ORyZy9y0wEx5RZwT",
+#        bearer_token='AAAAAAAAAAAAAAAAAAAAAGq9qgEAAAAAlYNa8awIAhpdS0Rs1qF%2FN67tHKM%3DgUysQO39MnzTfF9l6uqvj5uPNl3pXF6h0K6NvcJlVIFDKOL3uL',
+#    )
+# )
+
+# # initialize tweets retriever
+# source = TwitterSource()

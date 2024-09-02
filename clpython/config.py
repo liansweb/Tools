@@ -46,7 +46,7 @@ HEADER_REGEXP_GROUP = 1
 HEADER_REGEXP_SPLIT = ':'
 
 # Body Regexp
-BODY_REGEXP = r"-d '([^']+)'"
+BODY_REGEXP = r"(-d|--data-binary) '([^']+)'"
 # Body Regexp Group
 BODY_REGEXP_GROUP = 1
 

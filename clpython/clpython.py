@@ -20,6 +20,26 @@ def main():
       -H 'x-requested-with: XMLHttpRequest'
     """
     
+    curl_command = """
+    curl -i -s -k -X $'POST' \
+    -H $'Host: apis.starcross.cn:8888' -H $'Content-Length: 51' -H $'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36' -H $'Content-Type: application/json' -H $'Accept: */*' -H $'Origin: http://apis.starcross.cn:8888' -H $'Referer: http://apis.starcross.cn:8888/login' -H $'Accept-Encoding: gzip, deflate' -H $'Accept-Language: zh-CN,zh;q=0.9' -H $'Connection: close' \
+    --data-binary $'{\"email\":\"liteanso@test.com\",\"password\":\"6tfc&YGV\"}' \
+    $'http://apis.starcross.cn:8888/identity/api/auth/login'
+    """
+    
+    curl_command = """
+    curl -X 'POST' \
+    'http://10.2.14.127:9998/agentx_origin_http?src_ip=164.53.174.23&fixed_src_ip=off&src_port=80&dst_ip=11.22.33.99&dst_port=80&host_in_req_headers=true&host=admin.&resp_status_code=200&resp_status_reason=OK&get_kafka_content=off&history_time_switch=off&random_history_time=1&set_size=1&is_container=False&req_started_at=2023-08-08%2008%3A08%3A08&resp_ended_at=2023-08-08%2008%3A08%3A18' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '{
+    "ip_proportion": [],
+    "host_proportion": [],
+    "req_headers_dict": {},
+    "resp_headers_dict": {}
+    }'
+    """
+    
     # Example usage
     write_template(
         method=get_method(command=curl_command),

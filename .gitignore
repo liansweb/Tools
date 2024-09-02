@@ -5,3 +5,4 @@
 __pycache__/
 .pyc
 FCQ/control.yaml
+venv3/
