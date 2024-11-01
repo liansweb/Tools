@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API未授权访问测试平台 - 后台管理系统</title>
+    <!-- 引入Element UI的样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.9/theme-chalk/index.min.css">
+    <!-- 引入Vue.js -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.14/vue.js"></script>
+    <!-- 引入Element UI的组件库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-ui/2.15.9/index.min.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+        #app {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .el-container {
+            flex: 1;
+        }
+        .el-header {
+            background-color: #409EFF;
+            color: #fff;
+            line-height: 60px;
+            padding: 0 20px;
+        }
+        .el-aside {
+            background-color: #545c64;
+            color: #fff;
+        }
+        .el-main {
+            background-color: #f0f2f5;
+            color: #333;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .el-menu {
+            border-right: none;
+        }
+        .el-menu-item {
+            color: #fff;
+        }
+        .el-menu-item:hover, .el-menu-item:focus {
+            background-color: #434a50;
+        }
+        .el-menu-item.is-active {
+            color: #ffd04b;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <el-header>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 style="margin: 0;">API未授权访问测试平台</h2>
+                    <div>
+                        <span style="margin-right: 15px;">{{ userInfo.username }}</span>
+                        <el-dropdown>
+                            <span class="el-dropdown-link">
+                                <i class="el-icon-user"></i>
+                            </span>
+                            <el-dropdown-menu slot="dropdown">
+                                <el-dropdown-item>邮箱：{{ userInfo.email }}</el-dropdown-item>
+                                <el-dropdown-item>角色：{{ userInfo.role }}</el-dropdown-item>
+                                <el-dropdown-item divided @click.native="logout">退出</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </el-dropdown>
+                    </div>
+                </div>
+            </el-header>
+            <el-container>
+                <el-aside width="200px">
+                    <el-menu
+                        default-active="1"
+                        background-color="#545c64"
+                        text-color="#fff"
+                        active-text-color="#ffd04b">
+                        <el-menu-item index="1" @click="currentView = 'dashboard'">
+                            <i class="el-icon-s-data"></i>
+                            <span slot="title">仪表盘</span>
+                        </el-menu-item>
+                        <el-menu-item index="2" @click="currentView = 'users'">
+                            <i class="el-icon-user"></i>
+                            <span slot="title">用户管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="3" @click="currentView = 'orders'">
+                            <i class="el-icon-s-order"></i>
+                            <span slot="title">订单管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="4" @click="currentView = 'products'">
+                            <i class="el-icon-goods"></i>
+                            <span slot="title">商品管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="5" @click="currentView = 'suppliers'">
+                            <i class="el-icon-office-building"></i>
+                            <span slot="title">供应商管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="6" @click="currentView = 'coupons'">
+                            <i class="el-icon-tickets"></i>
+                            <span slot="title">优惠券管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="7" @click="currentView = 'addresses'">
+                            <i class="el-icon-location"></i>
+                            <span slot="title">地址信息管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="8" @click="currentView = 'roles'">
+                            <i class="el-icon-s-check"></i>
+                            <span slot="title">角色管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="9" @click="currentView = 'menus'">
+                            <i class="el-icon-menu"></i>
+                            <span slot="title">菜单管理</span>
+                        </el-menu-item>
+                        <el-menu-item index="10" @click="currentView = 'sensitive'">
+                            <i class="el-icon-warning"></i>
+                            <span slot="title">敏感数据</span>
+                        </el-menu-item>
+                    </el-menu>
+                </el-aside>
+                <el-main>
+                    <component :is="currentView"></component>
+                        <!-- 仪表盘组件 -->
+                        <!-- ... 其他组件 ... -->
+                    </component>
+                </el-main>
+            </el-container>
+        </el-container>
+    </div>
+
+    <script>
+        Vue.component('users', {
+            template: `
+                <div>
+                    <h3>用户管理</h3>
+                    <el-form :inline="true" class="demo-form-inline">
+                        <el-form-item>
+                            <el-input v-model="userId" placeholder="用户ID"></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="primary" @click="getUserById">获取用户</el-button>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="success" @click="getUsers">获取所有用户</el-button>
+                        </el-form-item>
+                    </el-form>
+                    <el-table v-if="users.length > 0" :data="users" style="width: 100%">
+                        <el-table-column prop="username" label="用户名"></el-table-column>
+                        <el-table-column prop="email" label="邮箱"></el-table-column>
+                        <el-table-column prop="phone" label="电话"></el-table-column>
+                        <el-table-column prop="address" label="地址"></el-table-column>
+                    </el-table>
+                    <el-pagination
+                        v-if="users.length > 0"
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-sizes="[10, 20, 30, 40]"
+                        :page-size="pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="100">
+                    </el-pagination>
+                </div>
+            `,
+            data() {
+                return {
+                    userId: '',
+                    users: [],
+                    currentPage: 1,
+                    pageSize: 10
+                }
+            },
+            methods: {
+                getUserById() {
+                    if (!this.userId) {
+                        this.$message.warning('请输入用户ID');
+                        return;
+                    }
+                    fetch(`/api/user/${this.userId}`, {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.users = [data];
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取用户信息失败');
+                        });
+                },
+                getUsers() {
+                    fetch(`/api/users?page=${this.currentPage}&page_size=${this.pageSize}`, {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.users = data.users;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取用户列表失败');
+                        });
+                },
+                handleSizeChange(val) {
+                    this.pageSize = val;
+                    this.getUsers();
+                },
+                handleCurrentChange(val) {
+                    this.currentPage = val;
+                    this.getUsers();
+                }
+            }
+        });
+
+        Vue.component('orders', {
+            template: `
+                <div>
+                    <h3>订单管理</h3>
+                    <el-form :inline="true" class="demo-form-inline">
+                        <el-form-item>
+                            <el-input v-model="orderId" placeholder="订单ID"></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="primary" @click="getOrderById">获取订单</el-button>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="success" @click="getOrders">获取所有订单</el-button>
+                        </el-form-item>
+                    </el-form>
+                    <el-table v-if="orders.length > 0" :data="orders" style="width: 100%">
+                        <el-table-column prop="id" label="订单ID"></el-table-column>
+                        <el-table-column prop="user_id" label="用户ID"></el-table-column>
+                        <el-table-column prop="product_id" label="产品ID"></el-table-column>
+                        <el-table-column prop="amount" label="金额"></el-table-column>
+                        <el-table-column prop="status" label="状态"></el-table-column>
+                    </el-table>
+                    <el-pagination
+                        v-if="orders.length > 0"
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-sizes="[10, 20, 30, 40]"
+                        :page-size="pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="100">
+                    </el-pagination>
+                </div>
+            `,
+            data() {
+                return {
+                    orderId: '',
+                    orders: [],
+                    currentPage: 1,
+                    pageSize: 10
+                }
+            },
+            methods: {
+                getOrderById() {
+                    if (!this.orderId) {
+                        this.$message.warning('请输入订单ID');
+                        return;
+                    }
+                    fetch(`/api/order/${this.orderId}`, {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.orders = [data];
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取订单信息失败');
+                        });
+                },
+                getOrders() {
+                    fetch(`/api/orders?page_size=${this.pageSize}&number=${this.currentPage}`, {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.orders = data.orders;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取订单列表失败');
+                        });
+                },
+                handleSizeChange(val) {
+                    this.pageSize = val;
+                    this.getOrders();
+                },
+                handleCurrentChange(val) {
+                    this.currentPage = val;
+                    this.getOrders();
+                }
+            }
+        });
+
+        Vue.component('sensitive', {
+            template: `
+                <div>
+                    <h3>敏感数据</h3>
+                    <el-button type="warning" @click="getSensitiveData">获取敏感数据</el-button>
+                    <el-card v-if="sensitiveData" style="margin-top: 20px;">
+                        <div slot="header">
+                            <span>敏感信息</span>
+                        </div>
+                        <el-table :data="sensitiveDataArray" style="width: 100%">
+                            <el-table-column prop="key" label="类型"></el-table-column>
+                            <el-table-column prop="value" label="数据"></el-table-column>
+                        </el-table>
+                    </el-card>
+                </div>
+            `,
+            data() {
+                return {
+                    sensitiveData: null,
+                    sensitiveDataArray: []
+                }
+            },
+            methods: {
+                getSensitiveData() {
+                    fetch('/api/sensitive_data', {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.sensitiveData = data;
+                            this.sensitiveDataArray = Object.entries(data).map(([key, value]) => ({key, value}));
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取敏感数据失败');
+                        });
+                }
+            }
+        });
+
+        Vue.component('dashboard', {
+            template: `
+                <div>
+                    <h3>仪表盘</h3>
+                    <el-row :gutter="20">
+                        <el-col :span="6">
+                            <el-card shadow="hover">
+                                <div slot="header">总用户数</div>
+                                <div>{{ dashboardData.total_users }}</div>
+                            </el-card>
+                        </el-col>
+                        <el-col :span="6">
+                            <el-card shadow="hover">
+                                <div slot="header">总订单数</div>
+                                <div>{{ dashboardData.total_orders }}</div>
+                            </el-card>
+                        </el-col>
+                        <el-col :span="6">
+                            <el-card shadow="hover">
+                                <div slot="header">总收入</div>
+                                <div>¥{{ dashboardData.total_revenue }}</div>
+                            </el-card>
+                        </el-col>
+                        <el-col :span="6">
+                            <el-card shadow="hover">
+                                <div slot="header">今日新增用户</div>
+                                <div>{{ dashboardData.new_users_today }}</div>
+                            </el-card>
+                        </el-col>
+                    </el-row>
+                </div>
+            `,
+            data() {
+                return {
+                    dashboardData: {
+                        total_users: 0,
+                        total_orders: 0,
+                        total_revenue: 0,
+                        new_users_today: 0
+                    }
+                }
+            },
+            mounted() {
+                this.getDashboardData();
+            },
+            methods: {
+                getDashboardData() {
+                    fetch('/api/dashboard', {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.dashboardData = data;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取仪表盘数据失败');
+                        });
+                }
+            }
+        });
+
+        Vue.component('products', {
+            template: `
+                <div>
+                    <h3>商品管理</h3>
+                    <el-table :data="products" style="width: 100%">
+                        <el-table-column prop="id" label="ID" width="80"></el-table-column>
+                        <el-table-column prop="name" label="商品名称"></el-table-column>
+                        <el-table-column prop="price" label="价格">
+                            <template slot-scope="scope">
+                                {% raw %}{{ (scope.row.price.toFixed(2))/100 }}{% endraw %}
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="stock" label="库存"></el-table-column>
+                        <el-table-column prop="category" label="类别"></el-table-column>
+                        <el-table-column prop="discount" label="折扣"></el-table-column>
+                        <el-table-column prop="discount" label="折扣">
+                            <template slot-scope="scope">
+                                {% raw %}{{ (scope.row.discount * 100).toFixed(0) }}%{% endraw %}
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="操作" width="150">
+                            <template slot-scope="scope">
+                                <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-sizes="[10, 20, 30, 40]"
+                        :page-size="pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="1000">
+                    </el-pagination>
+                </div>
+            `,
+            data() {
+                return {
+                    products: [],
+                    currentPage: 1,
+                    pageSize: 10
+                }
+            },
+            mounted() {
+                this.getProducts();
+            },
+            methods: {
+                getProducts() {
+                    fetch(`/api/products?page=${this.currentPage}&page_size=${this.pageSize}`, {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.products = data.products;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取商品列表失败');
+                        });
+                },
+                handleSizeChange(val) {
+                    this.pageSize = val;
+                    this.getProducts();
+                },
+                handleCurrentChange(val) {
+                    this.currentPage = val;
+                    this.getProducts();
+                },
+                handleEdit(row) {
+                    this.$message.info(`编辑商品：${row.name}`);
+                },
+                handleDelete(row) {
+                    this.$confirm(`确定要删除商品 ${row.name} 吗？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        this.$message.success(`删除商品：${row.name}`);
+                    }).catch(() => {
+                        this.$message.info('已取消删除');
+                    });
+                }
+            }
+        });
+
+        Vue.component('suppliers', {
+            template: `
+                <div>
+                    <h3>供应商管理</h3>
+                    <el-table :data="suppliers" style="width: 100%">
+                        <el-table-column prop="id" label="ID" width="80"></el-table-column>
+                        <el-table-column prop="name" label="供应商名称"></el-table-column>
+                        <el-table-column prop="contact" label="联系人"></el-table-column>
+                        <el-table-column prop="phone" label="电话"></el-table-column>
+                        <el-table-column prop="address" label="地址"></el-table-column>
+                        <el-table-column label="操作" width="150">
+                            <template slot-scope="scope">
+                                <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-sizes="[10, 20, 30, 40]"
+                        :page-size="pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="100">
+                    </el-pagination>
+                </div>
+            `,
+            data() {
+                return {
+                    suppliers: [],
+                    currentPage: 1,
+                    pageSize: 10
+                }
+            },
+            mounted() {
+                this.getSuppliers();
+            },
+            methods: {
+                getSuppliers() {
+                    fetch(`/api/suppliers?page=${this.currentPage}&page_size=${this.pageSize}`, {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.suppliers = data.suppliers;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取供应商列表失败');
+                        });
+                },
+                handleSizeChange(val) {
+                    this.pageSize = val;
+                    this.getSuppliers();
+                },
+                handleCurrentChange(val) {
+                    this.currentPage = val;
+                    this.getSuppliers();
+                },
+                handleEdit(row) {
+                    this.$message.info(`编辑供应商：${row.name}`);
+                },
+                handleDelete(row) {
+                    this.$confirm(`确定要删除供应商 ${row.name} 吗？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        this.$message.success(`删除供应商：${row.name}`);
+                    }).catch(() => {
+                        this.$message.info('已取消删除');
+                    });
+                }
+            }
+        });
+
+        Vue.component('coupons', {
+            template: `
+                <div>
+                    <h3>优惠券管理</h3>
+                    <el-table :data="coupons" style="width: 100%">
+                        <el-table-column prop="id" label="ID" width="80"></el-table-column>
+                        <el-table-column prop="code" label="优惠码"></el-table-column>
+                        <el-table-column prop="discount" label="折扣">
+                            <template slot-scope="scope">
+                                {% raw %}{{ (scope.row.discount * 100).toFixed(0) }}%{% endraw %}
+                            </template>
+                        </el-table-column>
+                        <el-table-column prop="valid_until" label="有效期至"></el-table-column>
+                        <el-table-column label="操作" width="150">
+                            <template slot-scope="scope">
+                                <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-sizes="[10, 20, 30, 40]"
+                        :page-size="pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="1000">
+                    </el-pagination>
+                </div>
+            `,
+            data() {
+                return {
+                    coupons: [],
+                    currentPage: 1,
+                    pageSize: 10
+                }
+            },
+            mounted() {
+                this.getCoupons();
+            },
+            methods: {
+                getCoupons() {
+                    fetch(`/api/coupons?page=${this.currentPage}&page_size=${this.pageSize}`, {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.coupons = data.coupons;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取优惠券列表失败');
+                        });
+                },
+                handleSizeChange(val) {
+                    this.pageSize = val;
+                    this.getCoupons();
+                },
+                handleCurrentChange(val) {
+                    this.currentPage = val;
+                    this.getCoupons();
+                },
+                handleEdit(row) {
+                    this.$message.info(`编辑优惠券：${row.code}`);
+                },
+                handleDelete(row) {
+                    this.$confirm(`确定要删除优惠券 ${row.code} 吗？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        this.$message.success(`删除优惠券：${row.code}`);
+                    }).catch(() => {
+                        this.$message.info('已取消删除');
+                    });
+                }
+            }
+        });
+
+        Vue.component('addresses', {
+            template: `
+                <div>
+                    <h3>地址信息管理</h3>
+                    <el-table :data="addresses" style="width: 100%">
+                        <el-table-column prop="id" label="ID" width="80"></el-table-column>
+                        <el-table-column prop="user_id" label="用户ID" width="80"></el-table-column>
+                        <el-table-column prop="recipient" label="收件人"></el-table-column>
+                        <el-table-column prop="phone" label="电话"></el-table-column>
+                        <el-table-column prop="province" label="省份"></el-table-column>
+                        <el-table-column prop="city" label="城市"></el-table-column>
+                        <el-table-column prop="district" label="区县"></el-table-column>
+                        <el-table-column prop="detail" label="详细地址"></el-table-column>
+                        <el-table-column label="操作" width="150">
+                            <template slot-scope="scope">
+                                <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                    <el-pagination
+                        @size-change="handleSizeChange"
+                        @current-change="handleCurrentChange"
+                        :current-page="currentPage"
+                        :page-sizes="[10, 20, 30, 40]"
+                        :page-size="pageSize"
+                        layout="total, sizes, prev, pager, next, jumper"
+                        :total="1000">
+                    </el-pagination>
+                </div>
+            `,
+            data() {
+                return {
+                    addresses: [],
+                    currentPage: 1,
+                    pageSize: 10
+                }
+            },
+            mounted() {
+                this.getAddresses();
+            },
+            methods: {
+                getAddresses() {
+                    fetch(`/api/addresses?page=${this.currentPage}&page_size=${this.pageSize}`, {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.addresses = data.addresses;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取地址列表失败');
+                        });
+                },
+                handleSizeChange(val) {
+                    this.pageSize = val;
+                    this.getAddresses();
+                },
+                handleCurrentChange(val) {
+                    this.currentPage = val;
+                    this.getAddresses();
+                },
+                handleEdit(row) {
+                    this.$message.info(`编辑地址：${row.recipient} - ${row.detail}`);
+                },
+                handleDelete(row) {
+                    this.$confirm(`确定要删除 ${row.recipient} 的地址吗？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        this.$message.success(`删除地址：${row.recipient} - ${row.detail}`);
+                    }).catch(() => {
+                        this.$message.info('已取消删除');
+                    });
+                }
+            }
+        });
+
+        Vue.component('roles', {
+            template: `
+                <div>
+                    <h3>角色管理</h3>
+                    <el-table :data="roles" style="width: 100%">
+                        <el-table-column prop="id" label="ID" width="80"></el-table-column>
+                        <el-table-column prop="name" label="角色名称"></el-table-column>
+                        <el-table-column prop="description" label="描述"></el-table-column>
+                        <el-table-column label="操作" width="150">
+                            <template slot-scope="scope">
+                                <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </div>
+            `,
+            data() {
+                return {
+                    roles: []
+                }
+            },
+            mounted() {
+                this.getRoles();
+            },
+            methods: {
+                getRoles() {
+                    fetch('/api/roles', {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.roles = data.roles;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取角色列表失败');
+                        });
+                },
+                handleEdit(row) {
+                    this.$message.info(`编辑角色：${row.name}`);
+                },
+                handleDelete(row) {
+                    this.$confirm(`确定要删除角色 ${row.name} 吗？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        this.$message.success(`删除角色：${row.name}`);
+                    }).catch(() => {
+                        this.$message.info('已取消删除');
+                    });
+                }
+            }
+        });
+
+        Vue.component('menus', {
+            template: `
+                <div>
+                    <h3>菜单管理</h3>
+                    <el-table :data="menus" style="width: 100%">
+                        <el-table-column prop="id" label="ID" width="80"></el-table-column>
+                        <el-table-column prop="name" label="菜单名称"></el-table-column>
+                        <el-table-column prop="url" label="URL"></el-table-column>
+                        <el-table-column prop="icon" label="图标">
+                            <template slot-scope="scope">
+                                <i :class="scope.row.icon"></i>
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="操作" width="150">
+                            <template slot-scope="scope">
+                                <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </div>
+            `,
+            data() {
+                return {
+                    menus: []
+                }
+            },
+            mounted() {
+                this.getMenus();
+            },
+            methods: {
+                getMenus() {
+                    fetch('/api/menus', {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.menus = data.menus;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取菜单列表失败');
+                        });
+                },
+                handleEdit(row) {
+                    this.$message.info(`编辑菜单：${row.name}`);
+                },
+                handleDelete(row) {
+                    this.$confirm(`确定要删除菜单 ${row.name} 吗？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        this.$message.success(`删除菜单：${row.name}`);
+                    }).catch(() => {
+                        this.$message.info('已取消删除');
+                    });
+                }
+            }
+        });
+
+        Vue.component('menus', {
+            template: `
+                <div>
+                    <h3>菜单管理</h3>
+                    <el-table :data="menus" style="width: 100%">
+                        <el-table-column prop="id" label="ID" width="80"></el-table-column>
+                        <el-table-column prop="name" label="菜单名称"></el-table-column>
+                        <el-table-column prop="url" label="URL"></el-table-column>
+                        <el-table-column prop="icon" label="图标">
+                            <template slot-scope="scope">
+                                <i :class="scope.row.icon"></i>
+                            </template>
+                        </el-table-column>
+                        <el-table-column label="操作" width="150">
+                            <template slot-scope="scope">
+                                <el-button size="mini" @click="handleEdit(scope.row)">编辑</el-button>
+                                <el-button size="mini" type="danger" @click="handleDelete(scope.row)">删除</el-button>
+                            </template>
+                        </el-table-column>
+                    </el-table>
+                </div>
+            `,
+            data() {
+                return {
+                    menus: []
+                }
+            },
+            mounted() {
+                this.getMenus();
+            },
+            methods: {
+                getMenus() {
+                    fetch('/api/menus', {
+                        credentials: 'same-origin'
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            this.menus = data.menus;
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            this.$message.error('获取菜单列表失败');
+                        });
+                },
+                handleEdit(row) {
+                    this.$message.info(`编辑菜单：${row.name}`);
+                },
+                handleDelete(row) {
+                    this.$confirm(`确定要删除菜单 ${row.name} 吗？`, '提示', {
+                        confirmButtonText: '确定',
+                        cancelButtonText: '取消',
+                        type: 'warning'
+                    }).then(() => {
+                        this.$message.success(`删除菜单：${row.name}`);
+                    }).catch(() => {
+                        this.$message.info('已取消删除');
+                    });
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                userInfo: {
+                    username: 'admin',
+                    email: 'admin@example.com',
+                    role: '超级管理员'
+                },
+                currentView: 'dashboard'
+            },
+            methods: {
+                logout() {
+                    fetch('/api/logout', {
+                        method: 'POST',
+                        credentials: 'same-origin'
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        this.$message.success('退出成功');
+                        // 重定向到登录页面
+                        window.location.href = '/login';
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        this.$message.error('退出失败');
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
